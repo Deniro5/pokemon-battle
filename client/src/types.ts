@@ -11,8 +11,24 @@ export type SelectedPokemon = {
 export type User = {
   _id: string;
   username: string;
-  team: string[];
+  team: (SelectedPokemon | null)[];
   battles: number;
   wins: number;
   losses: number;
+};
+
+export type BattlePokemon = {
+  name: string;
+  index: number;
+  isActive: boolean;
+  currentHp: number;
+  totalHp: number;
+  moves: string[];
+  stats: {
+    attack: number;
+    defense: number;
+    specialAttack: number;
+    specialDefense: number;
+    speed: number;
+  };
 };

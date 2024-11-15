@@ -15,7 +15,9 @@ export default function Home() {
       <TeamDisplay />
       <ButtonContainer>
         <LinkButton to="/team-selection">Choose Team</LinkButton>
-        <StyledButton> Start Battle </StyledButton>
+        <LinkButton disabled={!user?.team?.length} to="/battle">
+          Start Battle
+        </LinkButton>
       </ButtonContainer>
     </HomeContainer>
   );
@@ -32,8 +34,4 @@ const ButtonContainer = styled.div`
   display: flex;
   gap: 24px;
   flex-direction: column;
-`;
-
-const StyledButton = styled(Button)`
-  width: 200px;
 `;

@@ -1,23 +1,30 @@
 import styled from "styled-components";
 import { SelectedPokemon } from "../../../types";
+import useStore from "../../../zustand/store";
 
-const sample: (SelectedPokemon | null)[] = [
-  { name: "bulbasaur", index: 1 },
-  { name: "ivysaur", index: 2 },
-  { name: "venusaur", index: 3 },
-  { name: "charmander", index: 4 },
-  { name: "charmeleon", index: 5 },
-  { name: "charizard", index: 6 },
-];
+type TeamDisplayProps = {
+  onClick?: (selectedPokemon: SelectedPokemon) => void;
+  team: (SelectedPokemon | null)[];
+};
 
-export default function TeamDisplay() {
+export default function TeamDisplay({ team, onClick }: TeamDisplayProps) {
+  const { user } = useStore();
+
+  const handleOnClick = (pokemon: null | SelectedPokemon) => {
+    if (!onClick || !pokemon) return;
+
+    onClick(pokemon);
+  };
+
   return (
     <TeamGrid>
-      {sample.map((pok) => (
-        <Tile>
+      {team.map((pokemon) => (
+        <Tile onClick={() => handleOnClick(pokemon)}>
           {" "}
           <img
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pok?.index}.png`}
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+              pokemon?.index || 0
+            }.png`}
           />{" "}
         </Tile>
       ))}

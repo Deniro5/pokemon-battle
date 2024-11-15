@@ -23,10 +23,18 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  team: {
-    type: [String], // Assuming 'team' is an array of Pokémon names or IDs
-    default: [],
-  },
+  team: [
+    {
+      name: {
+        type: String,
+        required: true,
+      },
+      index: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);

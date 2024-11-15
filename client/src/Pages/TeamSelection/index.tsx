@@ -4,14 +4,16 @@ import { PokemonType, SelectedPokemon } from "../../types";
 import styled from "styled-components";
 import { Button, Flex } from "../../styles";
 import { useNavigate } from "react-router-dom";
+import useStore from "../../zustand/store";
 
 export default function TeamSelection() {
   const navigate = useNavigate();
   const [pokemon, setPokemon] = useState<SelectedPokemon[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const [loading, setLoading] = useState(true);
+  const { user, updateUser } = useStore();
   const [selected, setSelected] = useState<(SelectedPokemon | null)[]>(
-    Array(6).fill(null)
+    user?.team?.length ? user.team : Array(6).fill(null)
   );
 
   const getFirstEmptySlot = () => selected.findIndex((selected) => !selected);
@@ -42,17 +44,27 @@ export default function TeamSelection() {
     setSelected(newSelected);
   };
 
-  const handleSubmit = () => {
-    //send to backend
-    navigate("/");
+  const handleSubmit = async () => {
+    if (!user) return;
+
+    const success = await updateUser(user._id, { team: selected });
+    if (success) {
+      navigate("/");
+      return;
+    } else {
+      alert("Something went wrong. Please try again");
+    }
   };
+
+  const handleClear = () => setSelected(Array(6).fill(null));
 
   useEffect(() => {
     const fetchPokemon = async () => {
       try {
         // Fetch data for the first 151 Pokémon
         const response = await axios.get<{ results: PokemonType[] }>(
-          "https://pokeapi.co/api/v2/pokemon?limit=151"
+          "http://pokeapi.co/api/v2/pokemon?limit=151",
+          { withCredentials: false }
         );
         console.log(response);
         setPokemon(response.data.results);
@@ -97,10 +109,21 @@ export default function TeamSelection() {
                 />
               </Tile>
             ))}
-            <Button onClick={handleSubmit} disabled={getFirstEmptySlot() >= 0}>
-              {" "}
-              Confirm Changes{" "}
-            </Button>
+            <ButtonContainer>
+              <Button
+                onClick={handleSubmit}
+                disabled={getFirstEmptySlot() >= 0}
+              >
+                {" "}
+                Confirm Changes{" "}
+              </Button>
+              <Button
+                onClick={handleClear}
+                disabled={getFirstEmptySlot() === 0}
+              >
+                Clear
+              </Button>
+            </ButtonContainer>
           </StyledFlex>
         </SelectedLabel>
       </SelectedTeamContainer>
@@ -161,4 +184,10 @@ const TileContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;

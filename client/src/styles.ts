@@ -26,7 +26,7 @@ export const Flex = styled.div`
   display: flex;
 `;
 
-export const LinkButton = styled(Link)`
+export const LinkButton = styled(Link)<{ disabled?: boolean }>`
   height: 40px;
   border: none;
   color: white;
@@ -43,10 +43,12 @@ export const LinkButton = styled(Link)`
     background: blue;
   }
 
-  &:disabled {
-    background-color: #ccc;
+  ${({ disabled }) =>
+    disabled &&
+    `
+  background-color: #ccc;
     color: #666;
-    cursor: not-allowed;
     opacity: 0.6;
-  }
+    pointer-events: none;
+ `}
 `;

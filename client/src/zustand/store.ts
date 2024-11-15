@@ -9,7 +9,7 @@ interface State {
   user: User | null;
   isAuthenticated: boolean;
   setUser: (user: User) => void;
-  updateUser: (_id: string, newTeam: string[]) => void;
+  updateUser: (_id: string, newFields: Partial<User>) => Promise<boolean>;
   login: (username: string, password: string) => Promise<boolean>;
   signup: (username: string, password: string) => Promise<boolean>;
   logout: () => void;
@@ -22,15 +22,16 @@ const useStore = create<State>((set) => ({
   setUser: (user) => set(() => ({ user })),
   updateUser: async (id, newFields) => {
     try {
-      const response = await axios.post(
+      const response = await axios.put(
         "http://localhost:8000/user/update/" + id,
         newFields
       );
-      const newUser = response.data;
-      set(() => ({ user: newUser }));
-      //what if we returned tru false based on success status?
+      const { user } = response.data;
+      set(() => ({ user }));
+      return true;
     } catch (e) {
       console.error(e);
+      return false;
     }
   },
   signup: async (username, password) => {
