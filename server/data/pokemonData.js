@@ -1,6 +1,4 @@
-import { BattlePokemon } from "../types";
-
-const pokemonData: BattlePokemon[] = [
+const pokemonData = [
   {
     name: "Bulbasaur",
     index: 1,
@@ -8,6 +6,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 45,
     totalHp: 45 * 4, // 180
     moves: ["Tackle", "Vine Whip"],
+    types: ["grass", "poison"],
     stats: {
       attack: 49,
       defense: 49,
@@ -23,6 +22,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Tackle", "Vine Whip"],
+    types: ["grass", "poison"],
     stats: {
       attack: 62,
       defense: 63,
@@ -38,6 +38,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 80,
     totalHp: 80 * 4, // 320
     moves: ["Razor Leaf", "Sludge Bomb", "Earthquake", "Body Slam"],
+    types: ["grass", "poison"],
     stats: {
       attack: 82,
       defense: 83,
@@ -53,6 +54,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 39,
     totalHp: 39 * 4, // 156
     moves: ["Scratch", "Ember"],
+    types: ["fire"],
     stats: {
       attack: 52,
       defense: 43,
@@ -68,6 +70,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 58,
     totalHp: 58 * 4, // 232
     moves: ["Flamethrower", "Dragon Claw", "Slash", "Scratch"],
+    types: ["fire"],
     stats: {
       attack: 64,
       defense: 58,
@@ -83,6 +86,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 78,
     totalHp: 78 * 4, // 312
     moves: ["Flamethrower", "Dragon Claw", "Air Slash", "Heat Wave"],
+    types: ["fire", "flying"],
     stats: {
       attack: 84,
       defense: 78,
@@ -98,6 +102,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 44,
     totalHp: 44 * 4, // 176
     moves: ["Tackle", "Water Gun", "Bubble"],
+    types: ["water"],
     stats: {
       attack: 48,
       defense: 65,
@@ -113,6 +118,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 59,
     totalHp: 59 * 4, // 236
     moves: ["Tackle", "Water Gun", "Ice punch", "Bubble"],
+    types: ["water"],
     stats: {
       attack: 63,
       defense: 80,
@@ -128,6 +134,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 79,
     totalHp: 79 * 4, // 316
     moves: ["Hydro Pump", "Skull Bash", "Ice Beam", "Surf"],
+    types: ["water"],
     stats: {
       attack: 83,
       defense: 100,
@@ -143,6 +150,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 45,
     totalHp: 45 * 4, // 180
     moves: ["Tackle"],
+    types: ["bug"],
     stats: {
       attack: 30,
       defense: 35,
@@ -158,6 +166,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 50,
     totalHp: 50 * 4, // 200
     moves: ["Tackle"],
+    types: ["bug"],
     stats: {
       attack: 20,
       defense: 55,
@@ -173,6 +182,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Gust", "Confusion", "Psybeam", "Tackle"],
+    types: ["bug", "flying"],
     stats: {
       attack: 45,
       defense: 50,
@@ -188,6 +198,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Poison Sting"],
+    types: ["poison"],
     stats: {
       attack: 35,
       defense: 30,
@@ -203,6 +214,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 45,
     totalHp: 45 * 4, // 180
     moves: ["Poison Sting"],
+    types: ["poison"],
     stats: {
       attack: 25,
       defense: 50,
@@ -218,6 +230,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Fury Attack", "Twinneedle", "Rage", "Poison Sting"],
+    types: ["poison", "flying"],
     stats: {
       attack: 90,
       defense: 40,
@@ -233,6 +246,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Tackle", "Peck", "Gust", "Quick Attack"],
+    types: ["normal", "flying"],
     stats: {
       attack: 45,
       defense: 40,
@@ -248,6 +262,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 63,
     totalHp: 63 * 4, // 252
     moves: ["Gust", "Quick Attack", "Tackle", "Wing Attack"],
+    types: ["normal", "flying"],
     stats: {
       attack: 60,
       defense: 55,
@@ -263,6 +278,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 83,
     totalHp: 83 * 4, // 332
     moves: ["Wing Attack", "Quick Attack", "Tackle", "Hyper Beam"],
+    types: ["normal", "flying"],
     stats: {
       attack: 80,
       defense: 75,
@@ -278,6 +294,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 30,
     totalHp: 30 * 4, // 120
     moves: ["Tackle", "Scratch", "Quick Attack", "Bite"],
+    types: ["normal"],
     stats: {
       attack: 56,
       defense: 35,
@@ -293,6 +310,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 55,
     totalHp: 55 * 4, // 220
     moves: ["Hyper Fang", "Quick Attack", "Bite", "Headbutt"],
+    types: ["normal"],
     stats: {
       attack: 81,
       defense: 60,
@@ -308,6 +326,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Peck", "Tackle", "Bite", "Fury Attack"],
+    types: ["flying"],
     stats: {
       attack: 60,
       defense: 30,
@@ -323,6 +342,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Drill Peck", "Fury Attack", "Headbutt", "Bite"],
+    types: ["flying"],
     stats: {
       attack: 90,
       defense: 65,
@@ -338,6 +358,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 35,
     totalHp: 35 * 4, // 140
     moves: ["Wrap", "Poison Sting", "Bite", "Slam"],
+    types: ["poison"],
     stats: {
       attack: 60,
       defense: 44,
@@ -353,6 +374,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Bite", "Poison Jab", "Headbutt", "Slam"],
+    types: ["poison"],
     stats: {
       attack: 85,
       defense: 69,
@@ -368,6 +390,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 35,
     totalHp: 35 * 4, // 140
     moves: ["Thunder Shock", "Quick Attack", "Iron Tail", "Electro Ball"],
+    types: ["electric"],
     stats: {
       attack: 55,
       defense: 40,
@@ -383,6 +406,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Thunder Punch", "Thunderbolt", "Quick Attack", "Iron Tail"],
+    types: ["electric"],
     stats: {
       attack: 90,
       defense: 55,
@@ -398,6 +422,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 50,
     totalHp: 50 * 4, // 200
     moves: ["Scratch", "Quick Attack", "Tackle", "Poison Sting"],
+    types: ["ground"],
     stats: {
       attack: 75,
       defense: 85,
@@ -413,6 +438,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 75,
     totalHp: 75 * 4, // 300
     moves: ["Slash", "Earthquake", "Fury Swipes", "Scratch"],
+    types: ["ground"],
     stats: {
       attack: 100,
       defense: 110,
@@ -428,6 +454,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 55,
     totalHp: 55 * 4, // 220
     moves: ["Scratch", "Poison Sting", "Double Kick", "Headbutt"],
+    types: ["poison"],
     stats: {
       attack: 47,
       defense: 52,
@@ -443,6 +470,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 70,
     totalHp: 70 * 4, // 280
     moves: ["Bite", "Double Kick", "Poison Sting", "Headbutt"],
+    types: ["poison"],
     stats: {
       attack: 62,
       defense: 67,
@@ -458,6 +486,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 90,
     totalHp: 90 * 4, // 360
     moves: ["Body Slam", "Earthquake", "Double Kick", "Poison Sting"],
+    types: ["poison", "ground"],
     stats: {
       attack: 92,
       defense: 87,
@@ -473,6 +502,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 46,
     totalHp: 46 * 4, // 184
     moves: ["Poison Sting", "Tackle"],
+    types: ["poison"],
     stats: {
       attack: 57,
       defense: 40,
@@ -488,6 +518,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 61,
     totalHp: 61 * 4, // 244
     moves: ["Horn Attack", "Poison Sting", "Double Kick", "Fury Attack"],
+    types: ["poison"],
     stats: {
       attack: 72,
       defense: 57,
@@ -503,6 +534,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 81,
     totalHp: 81 * 4, // 324
     moves: ["Earthquake", "Horn Drill", "Double Kick", "Poison Sting"],
+    types: ["poison", "ground"],
     stats: {
       attack: 102,
       defense: 77,
@@ -518,6 +550,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 70,
     totalHp: 70 * 4, // 280
     moves: ["Pound", "Double Slap"],
+    types: ["fairy"],
     stats: {
       attack: 45,
       defense: 48,
@@ -533,6 +566,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 95,
     totalHp: 95 * 4, // 380
     moves: ["Moonblast", "Body Slam", "Pound", "Double Slap"],
+    types: ["fairy"],
     stats: {
       attack: 70,
       defense: 73,
@@ -548,6 +582,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 38,
     totalHp: 38 * 4, // 152
     moves: ["Quick Attack", "Ember"],
+    types: ["fire"],
     stats: {
       attack: 41,
       defense: 40,
@@ -563,6 +598,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 73,
     totalHp: 73 * 4, // 292
     moves: ["Flamethrower", "Quick Attack", "Fire Blast", "Iron Tail"],
+    types: ["fire"],
     stats: {
       attack: 76,
       defense: 75,
@@ -578,6 +614,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 115,
     totalHp: 115 * 4, // 460
     moves: ["Pound", "Rollout"],
+    types: ["fairy"],
     stats: {
       attack: 45,
       defense: 20,
@@ -593,6 +630,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 140,
     totalHp: 140 * 4, // 560
     moves: ["Hyper Voice", "Slam", "Rollout", "Pound"],
+    types: ["fairy"],
     stats: {
       attack: 70,
       defense: 45,
@@ -608,6 +646,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Leech Life", "Astonish", "Bite"],
+    types: ["flying", "poison"],
     stats: {
       attack: 45,
       defense: 35,
@@ -623,6 +662,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 75,
     totalHp: 75 * 4, // 300
     moves: ["Bite", "Wing Attack", "Astonish", "Poison Fang"],
+    types: ["flying", "poison"],
     stats: {
       attack: 80,
       defense: 70,
@@ -638,6 +678,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 45,
     totalHp: 45 * 4, // 180
     moves: ["Vine Whip", "Acid"],
+    types: ["grass", "poison"],
     stats: {
       attack: 50,
       defense: 55,
@@ -653,6 +694,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Acid", "Vine Whip", "Sludge"],
+    types: ["grass", "poison"],
     stats: {
       attack: 65,
       defense: 70,
@@ -668,6 +710,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 75,
     totalHp: 75 * 4, // 300
     moves: ["SolarBeam", "Sludge Bomb", "Razor Leaf", "Acid"],
+    types: ["grass", "poison"],
     stats: {
       attack: 80,
       defense: 70,
@@ -683,6 +726,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 35,
     totalHp: 35 * 4, // 140
     moves: ["Scratch", "Leech Life"],
+    types: ["grass", "bug"],
     stats: {
       attack: 70,
       defense: 55,
@@ -698,6 +742,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Headbutt", "Leech Life", "Slam", "Slash"],
+    types: ["grass", "bug"],
     stats: {
       attack: 95,
       defense: 80,
@@ -713,6 +758,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Tackle", "Confusion"],
+    types: ["poison", "bug"],
     stats: {
       attack: 60,
       defense: 55,
@@ -728,6 +774,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 70,
     totalHp: 70 * 4, // 280
     moves: ["Poison Fang", "Psychic", "Leech Life", "Tackle"],
+    types: ["poison", "flying"],
     stats: {
       attack: 65,
       defense: 60,
@@ -743,6 +790,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 10,
     totalHp: 10 * 4, // 40
     moves: ["Scratch", "Rock Throw"],
+    types: ["ground"],
     stats: {
       attack: 55,
       defense: 25,
@@ -758,6 +806,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 35,
     totalHp: 35 * 4, // 140
     moves: ["Dig", "Slash"],
+    types: ["ground"],
     stats: {
       attack: 100,
       defense: 50,
@@ -773,6 +822,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Bite", "Scratch", "Fury Swipes"],
+    types: ["normal"],
     stats: {
       attack: 45,
       defense: 35,
@@ -788,6 +838,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Bite", "Slash", "Fury Swipes"],
+    types: ["normal"],
     stats: {
       attack: 70,
       defense: 60,
@@ -803,6 +854,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 50,
     totalHp: 50 * 4, // 200
     moves: ["Confusion", "Water Gun"],
+    types: ["water"],
     stats: {
       attack: 52,
       defense: 48,
@@ -818,6 +870,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 80,
     totalHp: 80 * 4, // 320
     moves: ["Psychic", "Water Gun", "Confusion", "Aqua Tail"],
+    types: ["water"],
     stats: {
       attack: 82,
       defense: 78,
@@ -833,6 +886,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Low Kick", "Karate Chop", "Scratch"],
+    types: ["fighting"],
     stats: {
       attack: 80,
       defense: 35,
@@ -848,6 +902,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Low Kick", "Karate Chop", "Seismic Toss", "Hyper Beam"],
+    types: ["fighting"],
     stats: {
       attack: 105,
       defense: 60,
@@ -863,6 +918,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 55,
     totalHp: 55 * 4, // 220
     moves: ["Bite", "Ember", "Take Down"],
+    types: ["fire"],
     stats: {
       attack: 70,
       defense: 45,
@@ -878,6 +934,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 90,
     totalHp: 90 * 4, // 360
     moves: ["Flamethrower", "Bite", "Take Down", "Wild Charge"],
+    types: ["fire"],
     stats: {
       attack: 110,
       defense: 80,
@@ -893,6 +950,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Water Gun", "Tackle"],
+    types: ["water"],
     stats: {
       attack: 50,
       defense: 40,
@@ -908,6 +966,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Water Gun", "Tackle", "BubbleBeam", "Body Slam"],
+    types: ["water"],
     stats: {
       attack: 65,
       defense: 65,
@@ -917,12 +976,13 @@ const pokemonData: BattlePokemon[] = [
     },
   },
   {
-    name: "Politoed",
+    name: "Poliwrath",
     index: 62,
     isActive: false,
     currentHp: 90,
     totalHp: 90 * 4, // 360
     moves: ["Hydro Pump", "Body Slam", "BubbleBeam"],
+    types: ["water", "fighting"],
     stats: {
       attack: 75,
       defense: 75,
@@ -938,6 +998,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 25,
     totalHp: 25 * 4, // 100
     moves: ["Confusion"],
+    types: ["psychic"],
     stats: {
       attack: 20,
       defense: 15,
@@ -953,6 +1014,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Confusion", "Psybeam"],
+    types: ["psychic"],
     stats: {
       attack: 35,
       defense: 30,
@@ -968,6 +1030,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 55,
     totalHp: 55 * 4, // 220
     moves: ["Psychic", "Shadow Ball", "Confusion", "Psybeam"],
+    types: ["psychic"],
     stats: {
       attack: 50,
       defense: 45,
@@ -983,6 +1046,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 70,
     totalHp: 70 * 4, // 280
     moves: ["Low Kick", "Karate Chop", "Seismic Toss", "Rock Slide"],
+    types: ["fighting"],
     stats: {
       attack: 80,
       defense: 50,
@@ -998,6 +1062,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 80,
     totalHp: 80 * 4, // 320
     moves: ["Low Kick", "Karate Chop", "Seismic Toss", "Submission"],
+    types: ["fighting"],
     stats: {
       attack: 100,
       defense: 70,
@@ -1013,6 +1078,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 90,
     totalHp: 90 * 4, // 360
     moves: ["Low Kick", "Karate Chop", "Seismic Toss", "Dynamic Punch"],
+    types: ["fighting"],
     stats: {
       attack: 130,
       defense: 80,
@@ -1028,6 +1094,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 50,
     totalHp: 50 * 4, // 200
     moves: ["Vine Whip", "Acid"],
+    types: ["grass", "poison"],
     stats: {
       attack: 75,
       defense: 35,
@@ -1043,6 +1110,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Vine Whip", "Acid", "Razor Leaf"],
+    types: ["grass", "poison"],
     stats: {
       attack: 90,
       defense: 50,
@@ -1058,6 +1126,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 80,
     totalHp: 80 * 4, // 320
     moves: ["SolarBeam", "Acid", "Sludge Bomb", "Razor Leaf"],
+    types: ["grass", "poison"],
     stats: {
       attack: 105,
       defense: 65,
@@ -1073,6 +1142,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Poison Sting", "Acid", "BubbleBeam"],
+    types: ["water", "poison"],
     stats: {
       attack: 40,
       defense: 35,
@@ -1088,6 +1158,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 80,
     totalHp: 80 * 4, // 320
     moves: ["Poison Sting", "Acid", "Sludge Bomb", "Hydro Pump"],
+    types: ["water", "poison"],
     stats: {
       attack: 70,
       defense: 65,
@@ -1102,7 +1173,8 @@ const pokemonData: BattlePokemon[] = [
     isActive: false,
     currentHp: 40,
     totalHp: 40 * 4, // 160
-    moves: ["Tackle", "Rock Throw", "Magnitutde"],
+    moves: ["Tackle", "Rock Throw", "Magnitude"],
+    types: ["rock", "ground"],
     stats: {
       attack: 80,
       defense: 100,
@@ -1118,6 +1190,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 55,
     totalHp: 55 * 4, // 220
     moves: ["Rock Throw", "Magnitude", "Earthquake"],
+    types: ["rock", "ground"],
     stats: {
       attack: 95,
       defense: 115,
@@ -1133,6 +1206,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 80,
     totalHp: 80 * 4, // 320
     moves: ["Earthquake", "Rock Slide", "Explosion"],
+    types: ["rock", "ground"],
     stats: {
       attack: 110,
       defense: 130,
@@ -1148,6 +1222,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 50,
     totalHp: 50 * 4, // 200
     moves: ["Ember", "Stomp", "Fire Spin"],
+    types: ["fire"],
     stats: {
       attack: 60,
       defense: 40,
@@ -1163,6 +1238,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Flamethrower", "Stomp", "Fire Spin"],
+    types: ["fire"],
     stats: {
       attack: 85,
       defense: 60,
@@ -1178,6 +1254,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Water Gun", "Confusion", "Tackle"],
+    types: ["water", "Psychic"],
     stats: {
       attack: 65,
       defense: 65,
@@ -1193,6 +1270,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 95,
     totalHp: 95 * 4, // 380
     moves: ["Psychic", "Surf", "Water Gun"],
+    types: ["water", "Psychic"],
     stats: {
       attack: 75,
       defense: 110,
@@ -1208,6 +1286,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 25,
     totalHp: 25 * 4, // 100
     moves: ["Thunder Shock", "Magnet Bomb"],
+    types: ["steel", "electric"],
     stats: {
       attack: 35,
       defense: 35,
@@ -1223,6 +1302,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 50,
     totalHp: 50 * 4, // 200
     moves: ["Thunderbolt", "Magnet Bomb", "Flash Cannon"],
+    types: ["steel", "electric"],
     stats: {
       attack: 60,
       defense: 95,
@@ -1238,6 +1318,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 52,
     totalHp: 52 * 4, // 208
     moves: ["Peck", "Aerial Ace", "Fury Cutter"],
+    types: ["normal", "flying"],
     stats: {
       attack: 65,
       defense: 55,
@@ -1253,6 +1334,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 35,
     totalHp: 35 * 4, // 140
     moves: ["Peck", "Drill Peck"],
+    types: ["normal", "flying"],
     stats: {
       attack: 85,
       defense: 45,
@@ -1268,6 +1350,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Peck", "Drill Peck", "Tri Attack"],
+    types: ["normal", "flying"],
     stats: {
       attack: 110,
       defense: 70,
@@ -1283,6 +1366,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Headbutt", "Aurora Beam", "Ice Beam"],
+    types: ["water", "ice"],
     stats: {
       attack: 45,
       defense: 55,
@@ -1298,6 +1382,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 90,
     totalHp: 90 * 4, // 360
     moves: ["Aurora Beam", "Ice Beam", "Dive"],
+    types: ["water", "ice"],
     stats: {
       attack: 70,
       defense: 80,
@@ -1313,6 +1398,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 80,
     totalHp: 80 * 4, // 320
     moves: ["Sludge", "Pound"],
+    types: ["poison"],
     stats: {
       attack: 80,
       defense: 50,
@@ -1328,6 +1414,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 105,
     totalHp: 105 * 4, // 420
     moves: ["Sludge Bomb", "Gunk Shot", "Poison Jab"],
+    types: ["poison"],
     stats: {
       attack: 105,
       defense: 75,
@@ -1343,6 +1430,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 30,
     totalHp: 30 * 4, // 120
     moves: ["Tackle", "Ice Beam", "Clamp"],
+    types: ["water", "ice"],
     stats: {
       attack: 40,
       defense: 100,
@@ -1358,6 +1446,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 50,
     totalHp: 50 * 4, // 200
     moves: ["Ice Beam", "Hydro Pump", "Clamp", "Aurora Beam"],
+    types: ["water", "ice"],
     stats: {
       attack: 95,
       defense: 180,
@@ -1373,6 +1462,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 30,
     totalHp: 30 * 4, // 120
     moves: ["Lick", "Shadow Ball"],
+    types: ["ghost", "poison"],
     stats: {
       attack: 35,
       defense: 30,
@@ -1388,6 +1478,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 45,
     totalHp: 45 * 4, // 180
     moves: ["Shadow Ball", "Lick", "Confusion"],
+    types: ["ghost", "poison"],
     stats: {
       attack: 50,
       defense: 45,
@@ -1403,6 +1494,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Shadow Ball", "Sludge Bomb", "Psychic", "Thunderbolt"],
+    types: ["ghost", "poison"],
     stats: {
       attack: 65,
       defense: 60,
@@ -1418,6 +1510,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 35,
     totalHp: 35 * 4, // 140
     moves: ["Tackle", "Rock Throw", "Bind", "Earthquake"],
+    types: ["rock", "ground"],
     stats: {
       attack: 45,
       defense: 160,
@@ -1433,6 +1526,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Confusion", "Headbutt", "Psybeam"],
+    types: ["psychic"],
     stats: {
       attack: 48,
       defense: 45,
@@ -1448,6 +1542,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 85,
     totalHp: 85 * 4, // 340
     moves: ["Psychic", "Headbutt", "Zen Headbutt"],
+    types: ["psychic"],
     stats: {
       attack: 73,
       defense: 70,
@@ -1463,6 +1558,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 30,
     totalHp: 30 * 4, // 120
     moves: ["Vice Grip", "Bubble"],
+    types: ["water"],
     stats: {
       attack: 105,
       defense: 90,
@@ -1478,6 +1574,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 55,
     totalHp: 55 * 4, // 220
     moves: ["Crabhammer", "Vice Grip", "Slam"],
+    types: ["water"],
     stats: {
       attack: 130,
       defense: 115,
@@ -1493,6 +1590,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Tackle", "Thunderbolt"],
+    types: ["electric"],
     stats: {
       attack: 30,
       defense: 35,
@@ -1508,6 +1606,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Thunderbolt", "Rollout", "Spark"],
+    types: ["electric"],
     stats: {
       attack: 50,
       defense: 50,
@@ -1523,6 +1622,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Confusion", "Razor Leaf"],
+    types: ["grass", "psychic"],
     stats: {
       attack: 40,
       defense: 35,
@@ -1538,6 +1638,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 95,
     totalHp: 95 * 4, // 380
     moves: ["Razor Leaf", "Psychic", "Slam"],
+    types: ["grass", "psychic"],
     stats: {
       attack: 85,
       defense: 70,
@@ -1553,6 +1654,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 50,
     totalHp: 50 * 4, // 200
     moves: ["Bone Club", "Headbutt"],
+    types: ["rock"],
     stats: {
       attack: 50,
       defense: 95,
@@ -1568,6 +1670,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Bone Club", "Bonemerang", "Rock Slide"],
+    types: ["ground"],
     stats: {
       attack: 80,
       defense: 110,
@@ -1583,6 +1686,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 50,
     totalHp: 50 * 4, // 200
     moves: ["High Jump Kick", "Rolling Kick", "Reversal"],
+    types: ["fighting"],
     stats: {
       attack: 120,
       defense: 53,
@@ -1598,6 +1702,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 50,
     totalHp: 50 * 4, // 200
     moves: ["Fire Punch", "Ice Punch", "Thunder Punch", "Mega Punch"],
+    types: ["fighting"],
     stats: {
       attack: 105,
       defense: 79,
@@ -1613,6 +1718,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 55,
     totalHp: 55 * 4, // 220
     moves: ["Lick", "Body Slam", "Mega Punch"],
+    types: ["normal"],
     stats: {
       attack: 60,
       defense: 75,
@@ -1628,6 +1734,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Sludge", "Tackle"],
+    types: ["poison"],
     stats: {
       attack: 60,
       defense: 60,
@@ -1643,6 +1750,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Sludge Bomb", "Flamethrower", "Body Slam"],
+    types: ["poison"],
     stats: {
       attack: 90,
       defense: 120,
@@ -1658,6 +1766,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 80,
     totalHp: 80 * 4, // 320
     moves: ["Horn Attack", "Rock Blast", "Take Down"],
+    types: ["rock", "ground"],
     stats: {
       attack: 85,
       defense: 95,
@@ -1673,6 +1782,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 105,
     totalHp: 105 * 4, // 420
     moves: ["Earthquake", "Rock Slide", "Take Down", "Headbutt"],
+    types: ["rock", "ground"],
     stats: {
       attack: 130,
       defense: 120,
@@ -1688,6 +1798,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 250,
     totalHp: 250 * 4, // 1000
     moves: ["Seismic Toss", "Thunderbolt", "Ice Beam"],
+    types: ["normal"],
     stats: {
       attack: 5,
       defense: 5,
@@ -1703,6 +1814,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Vine Whip", "SolarBeam", "Constrict"],
+    types: ["grass"],
     stats: {
       attack: 55,
       defense: 115,
@@ -1718,6 +1830,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 105,
     totalHp: 105 * 4, // 420
     moves: ["Comet Punch", "Body Slam", "Hyper Beam"],
+    types: ["normal"],
     stats: {
       attack: 95,
       defense: 80,
@@ -1733,6 +1846,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 30,
     totalHp: 30 * 4, // 120
     moves: ["Bubble", "Tackle"],
+    types: ["water"],
     stats: {
       attack: 40,
       defense: 35,
@@ -1748,6 +1862,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 55,
     totalHp: 55 * 4, // 220
     moves: ["Surf", "Ice Beam", "Dragon Breath", "Headbutt"],
+    types: ["water"],
     stats: {
       attack: 65,
       defense: 55,
@@ -1763,6 +1878,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 45,
     totalHp: 45 * 4, // 180
     moves: ["Peck", "Horn Attack", "Waterfall"],
+    types: ["water"],
     stats: {
       attack: 67,
       defense: 60,
@@ -1778,6 +1894,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Horn Drill", "Waterfall", "Peck"],
+    types: ["water"],
     stats: {
       attack: 92,
       defense: 65,
@@ -1793,6 +1910,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 30,
     totalHp: 30 * 4, // 120
     moves: ["Tackle", "BubbleBeam", "Confusion"],
+    types: ["water"],
     stats: {
       attack: 45,
       defense: 50,
@@ -1808,6 +1926,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Surf", "Psychic", "Ice Beam"],
+    types: ["water", "psychic"],
     stats: {
       attack: 75,
       defense: 85,
@@ -1823,6 +1942,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 40,
     totalHp: 40 * 4, // 160
     moves: ["Psychic", "Confusion", "Thunderbolt"],
+    types: ["psychic"],
     stats: {
       attack: 45,
       defense: 65,
@@ -1838,6 +1958,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 70,
     totalHp: 70 * 4, // 280
     moves: ["Fury Cutter", "Quick Attack", "Wing Attack"],
+    types: ["bug", "flying"],
     stats: {
       attack: 110,
       defense: 80,
@@ -1853,6 +1974,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Ice Beam", "Psychic", "Body Slam"],
+    types: ["ice", "psychic"],
     stats: {
       attack: 50,
       defense: 35,
@@ -1868,6 +1990,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Thunder Punch", "Thunderbolt", "Quick Attack"],
+    types: ["electric"],
     stats: {
       attack: 83,
       defense: 57,
@@ -1883,6 +2006,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Fire Punch", "Flamethrower", "Headbutt"],
+    types: ["fire"],
     stats: {
       attack: 95,
       defense: 57,
@@ -1898,6 +2022,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["X-Scissor", "Vice Grip", "Submission"],
+    types: ["bug", "fighting"],
     stats: {
       attack: 125,
       defense: 100,
@@ -1913,6 +2038,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 75,
     totalHp: 75 * 4, // 300
     moves: ["Body Slam", "Hyper Beam", "Tackle"],
+    types: ["normal"],
     stats: {
       attack: 100,
       defense: 70,
@@ -1928,6 +2054,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 20,
     totalHp: 20 * 4, // 80
     moves: ["Splash"],
+    types: ["water"],
     stats: {
       attack: 10,
       defense: 55,
@@ -1943,6 +2070,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 95,
     totalHp: 95 * 4, // 380
     moves: ["Hydro Pump", "Bite", "Hyper Beam", "DragonBreath"],
+    types: ["water", "flying"],
     stats: {
       attack: 125,
       defense: 79,
@@ -1958,6 +2086,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 130,
     totalHp: 130 * 4, // 520
     moves: ["Ice Beam", "Surf", "Psychic", "Slam"],
+    types: ["water", "ice"],
     stats: {
       attack: 85,
       defense: 80,
@@ -1972,7 +2101,8 @@ const pokemonData: BattlePokemon[] = [
     isActive: false,
     currentHp: 48,
     totalHp: 48 * 4, // 192
-    moves: ["Transform"],
+    moves: ["Tackle"],
+    types: ["normal"],
     stats: {
       attack: 48,
       defense: 48,
@@ -1988,6 +2118,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 55,
     totalHp: 55 * 4, // 220
     moves: ["Tackle", "Quick Attack"],
+    types: ["normal"],
     stats: {
       attack: 55,
       defense: 50,
@@ -2003,6 +2134,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 130,
     totalHp: 130 * 4, // 520
     moves: ["Surf", "Ice Beam", "Water Gun", "Headbutt"],
+    types: ["water"],
     stats: {
       attack: 65,
       defense: 60,
@@ -2018,6 +2150,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Thunderbolt", "Thunder Wave", "Quick Attack"],
+    types: ["electric"],
     stats: {
       attack: 65,
       defense: 60,
@@ -2033,6 +2166,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Flamethrower", "Fire Spin", "Quick Attack"],
+    types: ["fire"],
     stats: {
       attack: 130,
       defense: 60,
@@ -2048,6 +2182,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 65,
     totalHp: 65 * 4, // 260
     moves: ["Tackle", "Psybeam", "Headbutt"],
+    types: ["normal"],
     stats: {
       attack: 60,
       defense: 70,
@@ -2063,6 +2198,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 35,
     totalHp: 35 * 4, // 140
     moves: ["Bubble", "Water Gun", "Rock Slide"],
+    types: ["rock", "water"],
     stats: {
       attack: 40,
       defense: 100,
@@ -2078,6 +2214,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 70,
     totalHp: 70 * 4, // 280
     moves: ["Hydro Pump", "Rock Slide", "Ice Beam", "Tackle"],
+    types: ["rock", "water"],
     stats: {
       attack: 60,
       defense: 125,
@@ -2093,6 +2230,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 30,
     totalHp: 30 * 4, // 120
     moves: ["Scratch", "Water Gun", "Mud Shot"],
+    types: ["rock", "water"],
     stats: {
       attack: 40,
       defense: 35,
@@ -2108,6 +2246,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 60,
     totalHp: 60 * 4, // 240
     moves: ["Rock Throw", "Slash", "Waterfall", "Headbutt"],
+    types: ["rock", "water"],
     stats: {
       attack: 115,
       defense: 105,
@@ -2123,6 +2262,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 80,
     totalHp: 80 * 4, // 320
     moves: ["Hyper Beam", "Aerial Ace", "Rock Slide", "Wing Attack"],
+    types: ["rock", "flying"],
     stats: {
       attack: 105,
       defense: 65,
@@ -2138,6 +2278,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 160,
     totalHp: 160 * 4, // 640
     moves: ["Body Slam", "Hyper Beam", "Headbutt", "Earthquake"],
+    types: ["normal"],
     stats: {
       attack: 110,
       defense: 65,
@@ -2153,6 +2294,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 90,
     totalHp: 90 * 4, // 360
     moves: ["Ice Beam", "Blizzard", "Hurricane", "Wing Attack"],
+    types: ["ice", "flying"],
     stats: {
       attack: 70,
       defense: 100,
@@ -2168,6 +2310,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 90,
     totalHp: 90 * 4, // 360
     moves: ["Thunderbolt", "Drill Peck", "Thunder", "Wing Attack"],
+    types: ["electric", "flying"],
     stats: {
       attack: 90,
       defense: 85,
@@ -2183,6 +2326,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 90,
     totalHp: 90 * 4, // 360
     moves: ["Flamethrower", "Fire Blast", "Sky Attack", "Wing Attack"],
+    types: ["fire", "flying"],
     stats: {
       attack: 100,
       defense: 90,
@@ -2198,6 +2342,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 41,
     totalHp: 41 * 4, // 164
     moves: ["Wrap", "Dragon Rage"],
+    types: ["dragon"],
     stats: {
       attack: 52,
       defense: 43,
@@ -2213,6 +2358,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 61,
     totalHp: 61 * 4, // 244
     moves: ["Dragon Tail", "Dragon Rage", "Slam"],
+    types: ["dragon"],
     stats: {
       attack: 84,
       defense: 65,
@@ -2228,6 +2374,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 91,
     totalHp: 91 * 4, // 364
     moves: ["Hyper Beam", "Outrage", "Dragon Claw", "Wing Attack"],
+    types: ["dragon", "flying"],
     stats: {
       attack: 134,
       defense: 95,
@@ -2243,6 +2390,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 106,
     totalHp: 106 * 4, // 424
     moves: ["Psychic", "Ice Beam", "Hyper Beam", "Thunderbolt"],
+    types: ["psychic"],
     stats: {
       attack: 110,
       defense: 90,
@@ -2258,6 +2406,7 @@ const pokemonData: BattlePokemon[] = [
     currentHp: 100,
     totalHp: 100 * 4, // 400
     moves: ["Psychic", "Ancient Power", "Hyper Beam", "Flamethrower"],
+    types: ["psychic"],
     stats: {
       attack: 100,
       defense: 100,
@@ -2268,4 +2417,4 @@ const pokemonData: BattlePokemon[] = [
   },
 ];
 
-export default pokemonData;
+module.exports = pokemonData;

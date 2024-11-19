@@ -127,3 +127,6 @@ const moves = {
   Psychic: { power: 90, accuracy: 100, type: "psychic" },
   Ancient_Power: { power: 60, accuracy: 100, type: "rock" },
 };
+
+export default moves;
+  

@@ -10,15 +10,13 @@ import HomeRedirect from "./Components/HomeRedirect";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Battle from "./Pages/Battle";
-import { moves } from "./data/pokemonData";
+
+//import { moves } from "./data/pokemonData";
 
 function App() {
   const { checkAuth } = useStore();
-  console.log(moves);
-
   useEffect(() => {
     checkAuth();
-    console.log("yooo");
   }, [checkAuth]);
 
   return (
