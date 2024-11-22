@@ -1,32 +1,40 @@
 import styled from "styled-components";
-import { SelectedPokemon } from "../../../types";
-import useStore from "../../../zustand/store";
+import { BattlePokemon, SelectedPokemon } from "../../../types";
 
-type TeamDisplayProps = {
-  onClick?: (selectedPokemon: SelectedPokemon) => void;
-  team: (SelectedPokemon | null)[];
+type TeamDisplayProps<T> = {
+  onClick?: (selectedPokemon: T) => void;
+  team: (T | null)[];
 };
 
-export default function TeamDisplay({ team, onClick }: TeamDisplayProps) {
-  const { user } = useStore();
+function isBattlePokemon(pokemon: any): pokemon is BattlePokemon {
+  return "currentHp" in pokemon;
+}
 
-  const handleOnClick = (pokemon: null | SelectedPokemon) => {
+export default function TeamDisplay<T>({ team, onClick }: TeamDisplayProps<T>) {
+  const handleOnClick = (pokemon: T | null) => {
     if (!onClick || !pokemon) return;
 
-    onClick(pokemon);
+    if (isBattlePokemon(pokemon)) {
+      if (pokemon.currentHp === 0) {
+        alert(pokemon.name + " has fainted and is unable to battle");
+      }
+    }
   };
 
   return (
     <TeamGrid>
       {team.map((pokemon) => (
-        <Tile onClick={() => handleOnClick(pokemon)}>
-          {" "}
-          <img
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-              pokemon?.index || 0
-            }.png`}
-          />{" "}
-        </Tile>
+        <TileContainer>
+          <Tile onClick={() => handleOnClick(pokemon)}>
+            {" "}
+            <img
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                pokemon?.index || 0
+              }.png`}
+            />{" "}
+          </Tile>
+          <Name>{pokemon?.name}</Name>
+        </TileContainer>
       ))}
     </TeamGrid>
   );
@@ -50,4 +58,14 @@ const Tile = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+`;
+
+const Name = styled.p`
+  margin-top: 4px;
+`;
+
+const TileContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

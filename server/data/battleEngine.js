@@ -1,9 +1,31 @@
 const pokemonData = require("./pokemonData");
 const typeAttackChart = require("./typeAttackChart");
+const User = require("../models/user.model");
 
 //Connect battle (different file)
 
 //Take user teams and return 'battle object'
+
+const startBattle = async (player1Id, player2Id) => {
+  try {
+    const users = await User.find({
+      _id: { $in: [player1Id, player2Id] },
+    });
+
+    const player1 = users[0];
+    const player2 = users[1];
+
+    console.log(player1);
+    console.log(player2);
+
+    const battleId = [player1Id, player2Id].sort().join("_");
+    const battleState = getInitialBattleState(player1, player2);
+    return { battleId, battleState };
+  } catch (err) {
+    console.error("Error fetching users:", err.message);
+    throw err;
+  }
+};
 
 const getInitialFullTeamData = (team) =>
   team.map((pokemon) => {
@@ -11,15 +33,23 @@ const getInitialFullTeamData = (team) =>
     return fullPokemon;
   });
 
-const getInitialBattleState = (userTeam, opponentTeam) => {
-  const fullUserTeam = getInitialFullTeamData(userTeam);
-  const fullOpponentTeam = getInitialFullTeamData(opponentTeam);
+const getInitialBattleState = (player1, player2) => {
+  const fullPlayer1Team = getInitialFullTeamData(player1.team);
+  const fullPlayer2Team = getInitialFullTeamData(player2.team);
 
   return {
-    userTeam: fullUserTeam,
-    opponentTeam: fullOpponentTeam,
-    userPokemon: null,
-    opponentPokemon: null,
+    teams: { [player1._id]: fullPlayer1Team, [player2._id]: fullPlayer2Team },
+    activePokemon: {
+      [player1._id]: null,
+      [player2._id]: null,
+    },
+    usernames: {
+      [player1._id]: player1.username,
+      [player2._id]: player2.username,
+    },
+    playerIds: [player1._id, player2._id],
+    currentTurn: [player1._id, player2._id],
+    turnType: "switch",
     status: "in progress",
     text: "Choose a pokemon to send into battle",
   };
@@ -27,13 +57,10 @@ const getInitialBattleState = (userTeam, opponentTeam) => {
 
 //Each user chooses a pokemon to switch in
 
-const setUserActivePokemon = (battleState, newActivePokemon) => {
-  return { ...battleState, userPokemon: newActivePokemon };
+const setActivePokemon = (battleState, activePokemon) => {
+  return { ...battleState, activePokemon };
 };
 
-const setOpponentActivePokemon = (battleState, newActivePokemon) => {
-  return { ...battleState, opponentPokemon: newActivePokemon };
-};
 //handle a turn
 
 const handleTurn = (userTurn, opponentTurn, battleState) => {
@@ -81,9 +108,9 @@ const calculateDamage = (attacker, defender, move, baseLevel = 50) => {
 };
 
 module.exports = {
+  startBattle,
   calculateDamage,
   getInitialFullTeamData,
   getInitialBattleState,
-  setUserActivePokemon,
-  setOpponentActivePokemon,
+  setActivePokemon,
 };

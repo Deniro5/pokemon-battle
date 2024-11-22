@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BattlePokemon } from "../../../types";
+import { BattlePokemon } from "../../../../types";
 
 type ActivePokemonProps = {
   pokemon: BattlePokemon;
@@ -9,16 +9,26 @@ type ActivePokemonProps = {
 export default function ActivePokemon({ pokemon }: ActivePokemonProps) {
   return (
     <PokemonContainer>
-      <Sprite
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.index}.png`}
-      />
-      <HealthContainer>
-        {" "}
-        <Health />{" "}
-      </HealthContainer>
-      {pokemon.moves.map((move) => (
-        <Move> {move}</Move>
-      ))}
+      {pokemon ? (
+        <>
+          <Sprite
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+              pokemon?.index || 0
+            }.png`}
+          />
+          <HealthContainer>
+            {" "}
+            <Health />{" "}
+          </HealthContainer>
+          {pokemon.moves.map((move) => (
+            <Move> {move}</Move>
+          ))}
+        </>
+      ) : (
+        <Sprite
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${0}.png`}
+        />
+      )}
     </PokemonContainer>
   );
 }

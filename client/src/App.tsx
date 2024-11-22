@@ -9,7 +9,7 @@ import useStore from "./zustand/store";
 import HomeRedirect from "./Components/HomeRedirect";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
-import Battle from "./Pages/Battle";
+import Battle from "./Pages/BattleConnect";
 
 //import { moves } from "./data/pokemonData";
 
@@ -22,8 +22,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <Battle />
-      {/* <Routes>
+      <Routes>
         <Route
           path="/"
           element={
@@ -36,7 +35,16 @@ function App() {
           path="/team-selection"
           element={
             <RouteProtector>
-              <TeamSelection />{" "}
+              <TeamSelection />
+              {""}
+            </RouteProtector>
+          }
+        />
+        <Route
+          path="/battle"
+          element={
+            <RouteProtector>
+              <Battle />
             </RouteProtector>
           }
         />
@@ -56,7 +64,7 @@ function App() {
             </HomeRedirect>
           }
         />
-      </Routes> */}
+      </Routes>
     </Router>
   );
 }

@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const { Server } = require("socket.io");
 const app = express();
 const http = require("http");
+const { startBattle } = require("./data/battleEngine");
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
@@ -19,20 +20,39 @@ const io = new Server(server, {
 
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
+const { connect } = require("http2");
 
-io.on("connection", (socket) => {
-  console.log("A user connected:", socket.id);
+const connectedUsers = new Map();
+const battleMap = new Map();
 
-  io.emit("message", "message");
+io.on("connection", async (socket) => {
+  const userId = socket.handshake.query.userId;
+
+  if (connectedUsers.size) {
+    // startBattle(userId, connectedUsers[0]);
+    const opponentId = connectedUsers.keys().next().value;
+
+    console.log(userId, opponentId);
+    const { battleId, battleState } = await startBattle(userId, opponentId);
+    battleMap.set(battleId, battleState);
+
+    io.to(connectedUsers.get(opponentId)).emit("battle_start", battleState);
+    socket.emit("battle_start", battleState);
+
+    connectedUsers.delete(opponentId);
+    return;
+  }
+  connectedUsers.set(userId, socket.id);
 
   socket.on("message", (message) => {
-    console.log(`Message from ${socket.id}: ${message}`);
     socket.emit("message", `Server received: ${message}`);
   });
 
-  socket.on("disconnect", () => {
-    console.log(`User disconnected: ${socket.id}`);
+  socket.on("handle-disconnect", (userId) => {
+    connectedUsers.delete(userId);
   });
+
+  socket.on("disconnect", () => {});
 });
 
 dotenv.config();

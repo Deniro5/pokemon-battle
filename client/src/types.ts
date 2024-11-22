@@ -32,3 +32,34 @@ export type BattlePokemon = {
     speed: number;
   };
 };
+
+export type FullTeam = BattlePokemon[];
+
+export enum BattleStatus {
+  WAITING = "waiting",
+  DISCONNECTED = "disconnected",
+  CONNECT_ERROR = "connection_error",
+  CONNECTED = "connected",
+}
+
+export enum TurnType {
+  SWITCH = "switch", //at start + on death
+  ATTACK = "attack", // attack turn. you can switch here too
+}
+
+export type BattleState = {
+  teams: {
+    [userId: string]: FullTeam;
+  };
+  activePokemon: {
+    [userId: string]: BattlePokemon;
+  };
+  usernames: {
+    [userId: string]: string;
+  };
+  currentTurn: string[];
+  turnType: TurnType;
+  playerIds: string[];
+  status: BattleStatus;
+  text: string;
+};

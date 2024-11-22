@@ -12,7 +12,7 @@ export default function Home() {
     <HomeContainer>
       <h2> Welcome {user?.username}! </h2>
       <Stats />
-      <TeamDisplay />
+      {user && <TeamDisplay team={user.team} />}
       <ButtonContainer>
         <LinkButton to="/team-selection">Choose Team</LinkButton>
         <LinkButton disabled={!user?.team?.length} to="/battle">

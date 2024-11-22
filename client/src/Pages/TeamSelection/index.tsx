@@ -101,13 +101,16 @@ export default function TeamSelection() {
           Selected:
           <StyledFlex>
             {selected.map((pokemon, index) => (
-              <Tile onClick={() => removePokemon(index)}>
-                <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                    pokemon?.index || 0
-                  }.png`}
-                />
-              </Tile>
+              <TileContainer>
+                <Tile onClick={() => removePokemon(index)}>
+                  <img
+                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                      pokemon?.index || 0
+                    }.png`}
+                  />
+                </Tile>
+                <TileLabel> {pokemon?.name} </TileLabel>
+              </TileContainer>
             ))}
             <ButtonContainer>
               <Button
@@ -140,7 +143,6 @@ const TeamSelectionContainer = styled.div`
   margin-top: 48px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 8px;
   height: calc(100vh - 320px);
   overflow: scroll;
@@ -164,6 +166,7 @@ const Tile = styled.button`
 const TileLabel = styled.p`
   margin-top: 4px;
   font-weight: 500;
+  height: 40px;
 `;
 
 const SelectedTeamContainer = styled.div`
