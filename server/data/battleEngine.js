@@ -15,11 +15,8 @@ const startBattle = async (player1Id, player2Id) => {
     const player1 = users[0];
     const player2 = users[1];
 
-    console.log(player1);
-    console.log(player2);
-
     const battleId = [player1Id, player2Id].sort().join("_");
-    const battleState = getInitialBattleState(player1, player2);
+    const battleState = getInitialBattleState(player1, player2, battleId);
     return { battleId, battleState };
   } catch (err) {
     console.error("Error fetching users:", err.message);
@@ -33,11 +30,38 @@ const getInitialFullTeamData = (team) =>
     return fullPokemon;
   });
 
-const getInitialBattleState = (player1, player2) => {
+const queueTurn = (battleState, turn) => {
+  const newCurrentTurn = battleState.currentTurn.filter(
+    (currId) => currId != turn.userId
+  );
+  return {
+    ...battleState,
+    queuedTurns: [...battleState.queuedTurns, turn],
+    currentTurn: newCurrentTurn,
+  };
+};
+
+const processTurns = (battleState) => {
+  let newBattleState = battleState;
+  battleState.queuedTurns.forEach((turn) => {
+    if (turn.turnType === "switch") {
+      newBattleState = setActivePokemon(
+        newBattleState,
+        turn.pokemon,
+        turn.userId
+      );
+    }
+  });
+  newBattleState.queuedTurns = [];
+  return newBattleState;
+};
+
+const getInitialBattleState = (player1, player2, battleId) => {
   const fullPlayer1Team = getInitialFullTeamData(player1.team);
   const fullPlayer2Team = getInitialFullTeamData(player2.team);
 
   return {
+    id: battleId,
     teams: { [player1._id]: fullPlayer1Team, [player2._id]: fullPlayer2Team },
     activePokemon: {
       [player1._id]: null,
@@ -47,6 +71,7 @@ const getInitialBattleState = (player1, player2) => {
       [player1._id]: player1.username,
       [player2._id]: player2.username,
     },
+    queuedTurns: [],
     playerIds: [player1._id, player2._id],
     currentTurn: [player1._id, player2._id],
     turnType: "switch",
@@ -57,8 +82,22 @@ const getInitialBattleState = (player1, player2) => {
 
 //Each user chooses a pokemon to switch in
 
-const setActivePokemon = (battleState, activePokemon) => {
-  return { ...battleState, activePokemon };
+const setActivePokemon = (battleState, activePokemon, userId) => {
+  //change the active pokemon for the user and end their turn
+  const newActivePokemonObj = {
+    ...battleState.activePokemon,
+    [userId]: activePokemon,
+  };
+
+  const newCurrentTurn = battleState.currentTurn.filter(
+    (currId) => currId !== userId
+  );
+
+  return {
+    ...battleState,
+    currentTurn: newCurrentTurn,
+    activePokemon: newActivePokemonObj,
+  };
 };
 
 //handle a turn
@@ -113,4 +152,6 @@ module.exports = {
   getInitialFullTeamData,
   getInitialBattleState,
   setActivePokemon,
+  queueTurn,
+  processTurns,
 };

@@ -1,7 +1,12 @@
 import React from "react";
 import TeamDisplay from "../../Home/TeamDisplay";
 import ActivePokemon from "./ActivePokemon";
-import { BattleState, SelectedPokemon } from "../../../types";
+import {
+  BattlePokemon,
+  BattleState,
+  SelectedPokemon,
+  TurnType,
+} from "../../../types";
 import useStore from "../../../zustand/store";
 import styled from "styled-components";
 import { Flex } from "../../../styles";
@@ -32,12 +37,17 @@ export default function Battle({ battleState, socket }: BattleProps) {
   const opponentName = usernames[opponentId];
   const userPokemon = activePokemon[user._id];
   const opponentPokemon = activePokemon[opponentId];
-  const isUserTurn = currentTurn.find((id) => id === user._id);
+  const isUserTurn = !!currentTurn.find((id) => id === user._id);
 
-  const handleTeamClick = (pokemon: SelectedPokemon) => {
+  const handleTeamClick = (pokemon: BattlePokemon) => {
     if (!isUserTurn) return;
 
-    socket.emit("switch");
+    socket.emit("turn", {
+      battleId: battleState.id,
+      userId: user._id,
+      pokemon,
+      turnType: TurnType.SWITCH,
+    });
   };
 
   return (

@@ -6,7 +6,12 @@ const cookieParser = require("cookie-parser");
 const { Server } = require("socket.io");
 const app = express();
 const http = require("http");
-const { startBattle } = require("./data/battleEngine");
+const {
+  startBattle,
+  setActivePokemon,
+  queueTurn,
+  processTurns,
+} = require("./data/battleEngine");
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
@@ -20,29 +25,42 @@ const io = new Server(server, {
 
 const authRoutes = require("./routes/auth.routes");
 const userRoutes = require("./routes/user.routes");
-const { connect } = require("http2");
 
 const connectedUsers = new Map();
+const waitingUsers = new Map();
 const battleMap = new Map();
+
+function getOpponentId(battleState, userId) {
+  return battleState.playerIds.find((id) => id != userId).toString();
+}
 
 io.on("connection", async (socket) => {
   const userId = socket.handshake.query.userId;
+  socket.on("turn", (turnData) => {
+    const battleState = battleMap.get(turnData.battleId);
+    if (!battleState) return;
 
-  if (connectedUsers.size) {
-    // startBattle(userId, connectedUsers[0]);
-    const opponentId = connectedUsers.keys().next().value;
+    let newBattleState = battleState;
+    newBattleState = queueTurn(battleState, turnData);
 
-    console.log(userId, opponentId);
-    const { battleId, battleState } = await startBattle(userId, opponentId);
-    battleMap.set(battleId, battleState);
+    //if all users have moved
+    if (!newBattleState.currentTurn.length) {
+      newBattleState = processTurns(newBattleState);
+      const opponentId = getOpponentId(newBattleState, userId);
+      console.log(opponentId);
+      console.log(connectedUsers);
+      console.log(connectedUsers.get(opponentId));
+      io.to(connectedUsers.get(opponentId)).emit(
+        "update_state",
+        newBattleState
+      );
+    } else {
+      newBattleState.text = "Waiting for opponent...";
+    }
 
-    io.to(connectedUsers.get(opponentId)).emit("battle_start", battleState);
-    socket.emit("battle_start", battleState);
-
-    connectedUsers.delete(opponentId);
-    return;
-  }
-  connectedUsers.set(userId, socket.id);
+    socket.emit("update_state", newBattleState);
+    battleMap.set(newBattleState.id, newBattleState);
+  });
 
   socket.on("message", (message) => {
     socket.emit("message", `Server received: ${message}`);
@@ -53,6 +71,22 @@ io.on("connection", async (socket) => {
   });
 
   socket.on("disconnect", () => {});
+
+  connectedUsers.set(userId, socket.id);
+
+  if (waitingUsers.size) {
+    const opponentId = waitingUsers.keys().next().value;
+
+    const { battleId, battleState } = await startBattle(userId, opponentId);
+    battleMap.set(battleId, battleState);
+
+    io.to(waitingUsers.get(opponentId)).emit("battle_start", battleState);
+    socket.emit("battle_start", battleState);
+
+    waitingUsers.delete(opponentId);
+    return;
+  }
+  waitingUsers.set(userId, socket.id);
 });
 
 dotenv.config();

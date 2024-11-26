@@ -17,7 +17,9 @@ export default function TeamDisplay<T>({ team, onClick }: TeamDisplayProps<T>) {
     if (isBattlePokemon(pokemon)) {
       if (pokemon.currentHp === 0) {
         alert(pokemon.name + " has fainted and is unable to battle");
+        return;
       }
+      onClick(pokemon);
     }
   };
 

@@ -33,6 +33,11 @@ export default function BattleConnect() {
       setBattleState(battleState);
     });
 
+    newSocket.on("update_state", (battleState) => {
+      console.log(battleState);
+      setBattleState(battleState);
+    });
+
     setSocket(newSocket);
 
     return () => {

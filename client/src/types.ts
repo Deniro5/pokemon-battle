@@ -48,6 +48,7 @@ export enum TurnType {
 }
 
 export type BattleState = {
+  id: string;
   teams: {
     [userId: string]: FullTeam;
   };
@@ -57,6 +58,7 @@ export type BattleState = {
   usernames: {
     [userId: string]: string;
   };
+  queuedTurns: any[]; //TODO fix this
   currentTurn: string[];
   turnType: TurnType;
   playerIds: string[];
