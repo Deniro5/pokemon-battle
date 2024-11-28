@@ -3,8 +3,8 @@ const pokemonData = [
     name: "Bulbasaur",
     index: 1,
     isActive: false,
-    currentHp: 45,
-    totalHp: 45 * 4, // 180
+    currentHp: 180,
+    totalHp: 180, // 180
     moves: ["Tackle", "Vine Whip"],
     types: ["grass", "poison"],
     stats: {
@@ -19,8 +19,8 @@ const pokemonData = [
     name: "Ivysaur",
     index: 2,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Tackle", "Vine Whip"],
     types: ["grass", "poison"],
     stats: {
@@ -35,8 +35,8 @@ const pokemonData = [
     name: "Venusaur",
     index: 3,
     isActive: false,
-    currentHp: 80,
-    totalHp: 80 * 4, // 320
+    currentHp: 320,
+    totalHp: 320, // 320
     moves: ["Razor Leaf", "Sludge Bomb", "Earthquake", "Body Slam"],
     types: ["grass", "poison"],
     stats: {
@@ -51,8 +51,8 @@ const pokemonData = [
     name: "Charmander",
     index: 4,
     isActive: false,
-    currentHp: 39,
-    totalHp: 39 * 4, // 156
+    currentHp: 156,
+    totalHp: 156, // 156
     moves: ["Scratch", "Ember"],
     types: ["fire"],
     stats: {
@@ -67,8 +67,8 @@ const pokemonData = [
     name: "Charmeleon",
     index: 5,
     isActive: false,
-    currentHp: 58,
-    totalHp: 58 * 4, // 232
+    currentHp: 232,
+    totalHp: 232, // 232
     moves: ["Flamethrower", "Dragon Claw", "Slash", "Scratch"],
     types: ["fire"],
     stats: {
@@ -83,8 +83,8 @@ const pokemonData = [
     name: "Charizard",
     index: 6,
     isActive: false,
-    currentHp: 78,
-    totalHp: 78 * 4, // 312
+    currentHp: 312,
+    totalHp: 321, // 312
     moves: ["Flamethrower", "Dragon Claw", "Air Slash", "Heat Wave"],
     types: ["fire", "flying"],
     stats: {
@@ -99,8 +99,8 @@ const pokemonData = [
     name: "Squirtle",
     index: 7,
     isActive: false,
-    currentHp: 44,
-    totalHp: 44 * 4, // 176
+    currentHp: 176,
+    totalHp: 176, // 176
     moves: ["Tackle", "Water Gun", "Bubble"],
     types: ["water"],
     stats: {
@@ -115,8 +115,8 @@ const pokemonData = [
     name: "Wartortle",
     index: 8,
     isActive: false,
-    currentHp: 59,
-    totalHp: 59 * 4, // 236
+    currentHp: 236,
+    totalHp: 236, // 236
     moves: ["Tackle", "Water Gun", "Ice punch", "Bubble"],
     types: ["water"],
     stats: {
@@ -131,8 +131,8 @@ const pokemonData = [
     name: "Blastoise",
     index: 9,
     isActive: false,
-    currentHp: 79,
-    totalHp: 79 * 4, // 316
+    currentHp: 316,
+    totalHp: 316, // 316
     moves: ["Hydro Pump", "Skull Bash", "Ice Beam", "Surf"],
     types: ["water"],
     stats: {
@@ -147,8 +147,8 @@ const pokemonData = [
     name: "Caterpie",
     index: 10,
     isActive: false,
-    currentHp: 45,
-    totalHp: 45 * 4, // 180
+    currentHp: 180,
+    totalHp: 180, // 180
     moves: ["Tackle"],
     types: ["bug"],
     stats: {
@@ -163,8 +163,8 @@ const pokemonData = [
     name: "Metapod",
     index: 11,
     isActive: false,
-    currentHp: 50,
-    totalHp: 50 * 4, // 200
+    currentHp: 200,
+    totalHp: 200, // 200
     moves: ["Tackle"],
     types: ["bug"],
     stats: {
@@ -179,8 +179,8 @@ const pokemonData = [
     name: "Butterfree",
     index: 12,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Gust", "Confusion", "Psybeam", "Tackle"],
     types: ["bug", "flying"],
     stats: {
@@ -195,8 +195,8 @@ const pokemonData = [
     name: "Weedle",
     index: 13,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Poison Sting"],
     types: ["poison"],
     stats: {
@@ -211,8 +211,8 @@ const pokemonData = [
     name: "Kakuna",
     index: 14,
     isActive: false,
-    currentHp: 45,
-    totalHp: 45 * 4, // 180
+    currentHp: 180,
+    totalHp: 180, // 180
     moves: ["Poison Sting"],
     types: ["poison"],
     stats: {
@@ -227,8 +227,8 @@ const pokemonData = [
     name: "Beedrill",
     index: 15,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Fury Attack", "Twinneedle", "Rage", "Poison Sting"],
     types: ["poison", "flying"],
     stats: {
@@ -243,8 +243,8 @@ const pokemonData = [
     name: "Pidgey",
     index: 16,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Tackle", "Peck", "Gust", "Quick Attack"],
     types: ["normal", "flying"],
     stats: {
@@ -259,8 +259,8 @@ const pokemonData = [
     name: "Pidgeotto",
     index: 17,
     isActive: false,
-    currentHp: 63,
-    totalHp: 63 * 4, // 252
+    currentHp: 252,
+    totalHp: 252, // 252
     moves: ["Gust", "Quick Attack", "Tackle", "Wing Attack"],
     types: ["normal", "flying"],
     stats: {
@@ -275,8 +275,8 @@ const pokemonData = [
     name: "Pidgeot",
     index: 18,
     isActive: false,
-    currentHp: 83,
-    totalHp: 83 * 4, // 332
+    currentHp: 332,
+    totalHp: 332, // 332
     moves: ["Wing Attack", "Quick Attack", "Tackle", "Hyper Beam"],
     types: ["normal", "flying"],
     stats: {
@@ -291,8 +291,8 @@ const pokemonData = [
     name: "Rattata",
     index: 19,
     isActive: false,
-    currentHp: 30,
-    totalHp: 30 * 4, // 120
+    currentHp: 120,
+    totalHp: 120, // 120
     moves: ["Tackle", "Scratch", "Quick Attack", "Bite"],
     types: ["normal"],
     stats: {
@@ -307,8 +307,8 @@ const pokemonData = [
     name: "Raticate",
     index: 20,
     isActive: false,
-    currentHp: 55,
-    totalHp: 55 * 4, // 220
+    currentHp: 220,
+    totalHp: 220, // 220
     moves: ["Hyper Fang", "Quick Attack", "Bite", "Headbutt"],
     types: ["normal"],
     stats: {
@@ -323,8 +323,8 @@ const pokemonData = [
     name: "Spearow",
     index: 21,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Peck", "Tackle", "Bite", "Fury Attack"],
     types: ["flying"],
     stats: {
@@ -339,8 +339,8 @@ const pokemonData = [
     name: "Fearow",
     index: 22,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Drill Peck", "Fury Attack", "Headbutt", "Bite"],
     types: ["flying"],
     stats: {
@@ -355,8 +355,8 @@ const pokemonData = [
     name: "Ekans",
     index: 23,
     isActive: false,
-    currentHp: 35,
-    totalHp: 35 * 4, // 140
+    currentHp: 140,
+    totalHp: 140, // 140
     moves: ["Wrap", "Poison Sting", "Bite", "Slam"],
     types: ["poison"],
     stats: {
@@ -371,8 +371,8 @@ const pokemonData = [
     name: "Arbok",
     index: 24,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Bite", "Poison Jab", "Headbutt", "Slam"],
     types: ["poison"],
     stats: {
@@ -387,8 +387,8 @@ const pokemonData = [
     name: "Pikachu",
     index: 25,
     isActive: false,
-    currentHp: 35,
-    totalHp: 35 * 4, // 140
+    currentHp: 140,
+    totalHp: 140, // 140
     moves: ["Thunder Shock", "Quick Attack", "Iron Tail", "Electro Ball"],
     types: ["electric"],
     stats: {
@@ -403,8 +403,8 @@ const pokemonData = [
     name: "Raichu",
     index: 26,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Thunder Punch", "Thunderbolt", "Quick Attack", "Iron Tail"],
     types: ["electric"],
     stats: {
@@ -419,8 +419,8 @@ const pokemonData = [
     name: "Sandshrew",
     index: 27,
     isActive: false,
-    currentHp: 50,
-    totalHp: 50 * 4, // 200
+    currentHp: 200,
+    totalHp: 200, // 200
     moves: ["Scratch", "Quick Attack", "Tackle", "Poison Sting"],
     types: ["ground"],
     stats: {
@@ -435,8 +435,8 @@ const pokemonData = [
     name: "Sandslash",
     index: 28,
     isActive: false,
-    currentHp: 75,
-    totalHp: 75 * 4, // 300
+    currentHp: 300,
+    totalHp: 300, // 300
     moves: ["Slash", "Earthquake", "Fury Swipes", "Scratch"],
     types: ["ground"],
     stats: {
@@ -451,8 +451,8 @@ const pokemonData = [
     name: "Nidoran♀",
     index: 29,
     isActive: false,
-    currentHp: 55,
-    totalHp: 55 * 4, // 220
+    currentHp: 220,
+    totalHp: 220, // 220
     moves: ["Scratch", "Poison Sting", "Double Kick", "Headbutt"],
     types: ["poison"],
     stats: {
@@ -467,8 +467,8 @@ const pokemonData = [
     name: "Nidorina",
     index: 30,
     isActive: false,
-    currentHp: 70,
-    totalHp: 70 * 4, // 280
+    currentHp: 280,
+    totalHp: 280, // 280
     moves: ["Bite", "Double Kick", "Poison Sting", "Headbutt"],
     types: ["poison"],
     stats: {
@@ -483,8 +483,8 @@ const pokemonData = [
     name: "Nidoqueen",
     index: 31,
     isActive: false,
-    currentHp: 90,
-    totalHp: 90 * 4, // 360
+    currentHp: 360,
+    totalHp: 360, // 360
     moves: ["Body Slam", "Earthquake", "Double Kick", "Poison Sting"],
     types: ["poison", "ground"],
     stats: {
@@ -499,8 +499,8 @@ const pokemonData = [
     name: "Nidoran♂",
     index: 32,
     isActive: false,
-    currentHp: 46,
-    totalHp: 46 * 4, // 184
+    currentHp: 184,
+    totalHp: 184, // 184
     moves: ["Poison Sting", "Tackle"],
     types: ["poison"],
     stats: {
@@ -515,8 +515,8 @@ const pokemonData = [
     name: "Nidorino",
     index: 33,
     isActive: false,
-    currentHp: 61,
-    totalHp: 61 * 4, // 244
+    currentHp: 244,
+    totalHp: 244, // 244
     moves: ["Horn Attack", "Poison Sting", "Double Kick", "Fury Attack"],
     types: ["poison"],
     stats: {
@@ -531,8 +531,8 @@ const pokemonData = [
     name: "Nidoking",
     index: 34,
     isActive: false,
-    currentHp: 81,
-    totalHp: 81 * 4, // 324
+    currentHp: 324,
+    totalHp: 324, // 324
     moves: ["Earthquake", "Horn Drill", "Double Kick", "Poison Sting"],
     types: ["poison", "ground"],
     stats: {
@@ -547,8 +547,8 @@ const pokemonData = [
     name: "Clefairy",
     index: 35,
     isActive: false,
-    currentHp: 70,
-    totalHp: 70 * 4, // 280
+    currentHp: 280,
+    totalHp: 280, // 280
     moves: ["Pound", "Double Slap"],
     types: ["fairy"],
     stats: {
@@ -563,8 +563,8 @@ const pokemonData = [
     name: "Clefable",
     index: 36,
     isActive: false,
-    currentHp: 95,
-    totalHp: 95 * 4, // 380
+    currentHp: 380,
+    totalHp: 380, // 380
     moves: ["Moonblast", "Body Slam", "Pound", "Double Slap"],
     types: ["fairy"],
     stats: {
@@ -579,8 +579,8 @@ const pokemonData = [
     name: "Vulpix",
     index: 37,
     isActive: false,
-    currentHp: 38,
-    totalHp: 38 * 4, // 152
+    currentHp: 152,
+    totalHp: 152, // 152
     moves: ["Quick Attack", "Ember"],
     types: ["fire"],
     stats: {
@@ -595,8 +595,8 @@ const pokemonData = [
     name: "Ninetales",
     index: 38,
     isActive: false,
-    currentHp: 73,
-    totalHp: 73 * 4, // 292
+    currentHp: 292,
+    totalHp: 292, // 292
     moves: ["Flamethrower", "Quick Attack", "Fire Blast", "Iron Tail"],
     types: ["fire"],
     stats: {
@@ -611,8 +611,8 @@ const pokemonData = [
     name: "Jigglypuff",
     index: 39,
     isActive: false,
-    currentHp: 115,
-    totalHp: 115 * 4, // 460
+    currentHp: 460,
+    totalHp: 460, // 460
     moves: ["Pound", "Rollout"],
     types: ["fairy"],
     stats: {
@@ -627,8 +627,8 @@ const pokemonData = [
     name: "Wigglytuff",
     index: 40,
     isActive: false,
-    currentHp: 140,
-    totalHp: 140 * 4, // 560
+    currentHp: 560,
+    totalHp: 560, // 560
     moves: ["Hyper Voice", "Slam", "Rollout", "Pound"],
     types: ["fairy"],
     stats: {
@@ -643,8 +643,8 @@ const pokemonData = [
     name: "Zubat",
     index: 41,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Leech Life", "Astonish", "Bite"],
     types: ["flying", "poison"],
     stats: {
@@ -675,8 +675,8 @@ const pokemonData = [
     name: "Oddish",
     index: 43,
     isActive: false,
-    currentHp: 45,
-    totalHp: 45 * 4, // 180
+    currentHp: 180,
+    totalHp: 180, // 180
     moves: ["Vine Whip", "Acid"],
     types: ["grass", "poison"],
     stats: {
@@ -691,8 +691,8 @@ const pokemonData = [
     name: "Gloom",
     index: 44,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Acid", "Vine Whip", "Sludge"],
     types: ["grass", "poison"],
     stats: {
@@ -707,9 +707,9 @@ const pokemonData = [
     name: "Vileplume",
     index: 45,
     isActive: false,
-    currentHp: 75,
-    totalHp: 75 * 4, // 300
-    moves: ["SolarBeam", "Sludge Bomb", "Razor Leaf", "Acid"],
+    currentHp: 300,
+    totalHp: 300, // 300
+    moves: ["Solar Beam", "Sludge Bomb", "Razor Leaf", "Acid"],
     types: ["grass", "poison"],
     stats: {
       attack: 80,
@@ -723,8 +723,8 @@ const pokemonData = [
     name: "Paras",
     index: 46,
     isActive: false,
-    currentHp: 35,
-    totalHp: 35 * 4, // 140
+    currentHp: 140,
+    totalHp: 140, // 140
     moves: ["Scratch", "Leech Life"],
     types: ["grass", "bug"],
     stats: {
@@ -739,8 +739,8 @@ const pokemonData = [
     name: "Parasect",
     index: 47,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Headbutt", "Leech Life", "Slam", "Slash"],
     types: ["grass", "bug"],
     stats: {
@@ -755,8 +755,8 @@ const pokemonData = [
     name: "Venonat",
     index: 48,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Tackle", "Confusion"],
     types: ["poison", "bug"],
     stats: {
@@ -771,8 +771,8 @@ const pokemonData = [
     name: "Venomoth",
     index: 49,
     isActive: false,
-    currentHp: 70,
-    totalHp: 70 * 4, // 280
+    currentHp: 280,
+    totalHp: 280, // 280
     moves: ["Poison Fang", "Psychic", "Leech Life", "Tackle"],
     types: ["poison", "flying"],
     stats: {
@@ -787,8 +787,8 @@ const pokemonData = [
     name: "Diglett",
     index: 50,
     isActive: false,
-    currentHp: 10,
-    totalHp: 10 * 4, // 40
+    currentHp: 40,
+    totalHp: 40, // 40
     moves: ["Scratch", "Rock Throw"],
     types: ["ground"],
     stats: {
@@ -803,8 +803,8 @@ const pokemonData = [
     name: "Dugtrio",
     index: 51,
     isActive: false,
-    currentHp: 35,
-    totalHp: 35 * 4, // 140
+    currentHp: 140,
+    totalHp: 140, // 140
     moves: ["Dig", "Slash"],
     types: ["ground"],
     stats: {
@@ -819,8 +819,8 @@ const pokemonData = [
     name: "Meowth",
     index: 52,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Bite", "Scratch", "Fury Swipes"],
     types: ["normal"],
     stats: {
@@ -835,8 +835,8 @@ const pokemonData = [
     name: "Persian",
     index: 53,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Bite", "Slash", "Fury Swipes"],
     types: ["normal"],
     stats: {
@@ -851,8 +851,8 @@ const pokemonData = [
     name: "Psyduck",
     index: 54,
     isActive: false,
-    currentHp: 50,
-    totalHp: 50 * 4, // 200
+    currentHp: 200,
+    totalHp: 200, // 200
     moves: ["Confusion", "Water Gun"],
     types: ["water"],
     stats: {
@@ -867,8 +867,8 @@ const pokemonData = [
     name: "Golduck",
     index: 55,
     isActive: false,
-    currentHp: 80,
-    totalHp: 80 * 4, // 320
+    currentHp: 320,
+    totalHp: 320, // 320
     moves: ["Psychic", "Water Gun", "Confusion", "Aqua Tail"],
     types: ["water"],
     stats: {
@@ -883,8 +883,8 @@ const pokemonData = [
     name: "Mankey",
     index: 56,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Low Kick", "Karate Chop", "Scratch"],
     types: ["fighting"],
     stats: {
@@ -899,8 +899,8 @@ const pokemonData = [
     name: "Primeape",
     index: 57,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Low Kick", "Karate Chop", "Seismic Toss", "Hyper Beam"],
     types: ["fighting"],
     stats: {
@@ -915,8 +915,8 @@ const pokemonData = [
     name: "Growlithe",
     index: 58,
     isActive: false,
-    currentHp: 55,
-    totalHp: 55 * 4, // 220
+    currentHp: 220,
+    totalHp: 220, // 220
     moves: ["Bite", "Ember", "Take Down"],
     types: ["fire"],
     stats: {
@@ -931,8 +931,8 @@ const pokemonData = [
     name: "Arcanine",
     index: 59,
     isActive: false,
-    currentHp: 90,
-    totalHp: 90 * 4, // 360
+    currentHp: 360,
+    totalHp: 360, // 360
     moves: ["Flamethrower", "Bite", "Take Down", "Wild Charge"],
     types: ["fire"],
     stats: {
@@ -947,8 +947,8 @@ const pokemonData = [
     name: "Poliwag",
     index: 60,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Water Gun", "Tackle"],
     types: ["water"],
     stats: {
@@ -963,8 +963,8 @@ const pokemonData = [
     name: "Poliwhirl",
     index: 61,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Water Gun", "Tackle", "BubbleBeam", "Body Slam"],
     types: ["water"],
     stats: {
@@ -979,8 +979,8 @@ const pokemonData = [
     name: "Poliwrath",
     index: 62,
     isActive: false,
-    currentHp: 90,
-    totalHp: 90 * 4, // 360
+    currentHp: 360,
+    totalHp: 360, // 360
     moves: ["Hydro Pump", "Body Slam", "BubbleBeam"],
     types: ["water", "fighting"],
     stats: {
@@ -995,8 +995,8 @@ const pokemonData = [
     name: "Abra",
     index: 63,
     isActive: false,
-    currentHp: 25,
-    totalHp: 25 * 4, // 100
+    currentHp: 100,
+    totalHp: 100, // 100
     moves: ["Confusion"],
     types: ["psychic"],
     stats: {
@@ -1011,8 +1011,8 @@ const pokemonData = [
     name: "Kadabra",
     index: 64,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Confusion", "Psybeam"],
     types: ["psychic"],
     stats: {
@@ -1027,8 +1027,8 @@ const pokemonData = [
     name: "Alakazam",
     index: 65,
     isActive: false,
-    currentHp: 55,
-    totalHp: 55 * 4, // 220
+    currentHp: 220,
+    totalHp: 220, // 220
     moves: ["Psychic", "Shadow Ball", "Confusion", "Psybeam"],
     types: ["psychic"],
     stats: {
@@ -1043,8 +1043,8 @@ const pokemonData = [
     name: "Machop",
     index: 66,
     isActive: false,
-    currentHp: 70,
-    totalHp: 70 * 4, // 280
+    currentHp: 280,
+    totalHp: 280, // 280
     moves: ["Low Kick", "Karate Chop", "Seismic Toss", "Rock Slide"],
     types: ["fighting"],
     stats: {
@@ -1059,8 +1059,8 @@ const pokemonData = [
     name: "Machoke",
     index: 67,
     isActive: false,
-    currentHp: 80,
-    totalHp: 80 * 4, // 320
+    currentHp: 320,
+    totalHp: 320, // 320
     moves: ["Low Kick", "Karate Chop", "Seismic Toss", "Submission"],
     types: ["fighting"],
     stats: {
@@ -1075,8 +1075,8 @@ const pokemonData = [
     name: "Machamp",
     index: 68,
     isActive: false,
-    currentHp: 90,
-    totalHp: 90 * 4, // 360
+    currentHp: 360,
+    totalHp: 360, // 360
     moves: ["Low Kick", "Karate Chop", "Seismic Toss", "Dynamic Punch"],
     types: ["fighting"],
     stats: {
@@ -1091,8 +1091,8 @@ const pokemonData = [
     name: "Bellsprout",
     index: 69,
     isActive: false,
-    currentHp: 50,
-    totalHp: 50 * 4, // 200
+    currentHp: 200,
+    totalHp: 200, // 200
     moves: ["Vine Whip", "Acid"],
     types: ["grass", "poison"],
     stats: {
@@ -1107,8 +1107,8 @@ const pokemonData = [
     name: "Weepinbell",
     index: 70,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Vine Whip", "Acid", "Razor Leaf"],
     types: ["grass", "poison"],
     stats: {
@@ -1123,9 +1123,9 @@ const pokemonData = [
     name: "Victreebel",
     index: 71,
     isActive: false,
-    currentHp: 80,
-    totalHp: 80 * 4, // 320
-    moves: ["SolarBeam", "Acid", "Sludge Bomb", "Razor Leaf"],
+    currentHp: 320,
+    totalHp: 320, // 320
+    moves: ["Solar Beam", "Acid", "Sludge Bomb", "Razor Leaf"],
     types: ["grass", "poison"],
     stats: {
       attack: 105,
@@ -1139,8 +1139,8 @@ const pokemonData = [
     name: "Tentacool",
     index: 72,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Poison Sting", "Acid", "BubbleBeam"],
     types: ["water", "poison"],
     stats: {
@@ -1155,8 +1155,8 @@ const pokemonData = [
     name: "Tentacruel",
     index: 73,
     isActive: false,
-    currentHp: 80,
-    totalHp: 80 * 4, // 320
+    currentHp: 320,
+    totalHp: 320, // 320
     moves: ["Poison Sting", "Acid", "Sludge Bomb", "Hydro Pump"],
     types: ["water", "poison"],
     stats: {
@@ -1171,8 +1171,8 @@ const pokemonData = [
     name: "Geodude",
     index: 74,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Tackle", "Rock Throw", "Magnitude"],
     types: ["rock", "ground"],
     stats: {
@@ -1187,8 +1187,8 @@ const pokemonData = [
     name: "Graveler",
     index: 75,
     isActive: false,
-    currentHp: 55,
-    totalHp: 55 * 4, // 220
+    currentHp: 220,
+    totalHp: 220, // 220
     moves: ["Rock Throw", "Magnitude", "Earthquake"],
     types: ["rock", "ground"],
     stats: {
@@ -1203,8 +1203,8 @@ const pokemonData = [
     name: "Golem",
     index: 76,
     isActive: false,
-    currentHp: 80,
-    totalHp: 80 * 4, // 320
+    currentHp: 320,
+    totalHp: 320, // 320
     moves: ["Earthquake", "Rock Slide", "Explosion"],
     types: ["rock", "ground"],
     stats: {
@@ -1219,8 +1219,8 @@ const pokemonData = [
     name: "Ponyta",
     index: 77,
     isActive: false,
-    currentHp: 50,
-    totalHp: 50 * 4, // 200
+    currentHp: 200,
+    totalHp: 200, // 200
     moves: ["Ember", "Stomp", "Fire Spin"],
     types: ["fire"],
     stats: {
@@ -1235,8 +1235,8 @@ const pokemonData = [
     name: "Rapidash",
     index: 78,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Flamethrower", "Stomp", "Fire Spin"],
     types: ["fire"],
     stats: {
@@ -1251,8 +1251,8 @@ const pokemonData = [
     name: "Slowpoke",
     index: 79,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Water Gun", "Confusion", "Tackle"],
     types: ["water", "Psychic"],
     stats: {
@@ -1267,8 +1267,8 @@ const pokemonData = [
     name: "Slowbro",
     index: 80,
     isActive: false,
-    currentHp: 95,
-    totalHp: 95 * 4, // 380
+    currentHp: 380,
+    totalHp: 380, // 380
     moves: ["Psychic", "Surf", "Water Gun"],
     types: ["water", "Psychic"],
     stats: {
@@ -1283,8 +1283,8 @@ const pokemonData = [
     name: "Magnemite",
     index: 81,
     isActive: false,
-    currentHp: 25,
-    totalHp: 25 * 4, // 100
+    currentHp: 100,
+    totalHp: 100, // 100
     moves: ["Thunder Shock", "Magnet Bomb"],
     types: ["steel", "electric"],
     stats: {
@@ -1299,8 +1299,8 @@ const pokemonData = [
     name: "Magneton",
     index: 82,
     isActive: false,
-    currentHp: 50,
-    totalHp: 50 * 4, // 200
+    currentHp: 200,
+    totalHp: 200, // 200
     moves: ["Thunderbolt", "Magnet Bomb", "Flash Cannon"],
     types: ["steel", "electric"],
     stats: {
@@ -1315,8 +1315,8 @@ const pokemonData = [
     name: "Farfetch'd",
     index: 83,
     isActive: false,
-    currentHp: 52,
-    totalHp: 52 * 4, // 208
+    currentHp: 208,
+    totalHp: 208, // 208
     moves: ["Peck", "Aerial Ace", "Fury Cutter"],
     types: ["normal", "flying"],
     stats: {
@@ -1331,8 +1331,8 @@ const pokemonData = [
     name: "Doduo",
     index: 84,
     isActive: false,
-    currentHp: 35,
-    totalHp: 35 * 4, // 140
+    currentHp: 140,
+    totalHp: 140, // 140
     moves: ["Peck", "Drill Peck"],
     types: ["normal", "flying"],
     stats: {
@@ -1347,8 +1347,8 @@ const pokemonData = [
     name: "Dodrio",
     index: 85,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Peck", "Drill Peck", "Tri Attack"],
     types: ["normal", "flying"],
     stats: {
@@ -1363,8 +1363,8 @@ const pokemonData = [
     name: "Seel",
     index: 86,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Headbutt", "Aurora Beam", "Ice Beam"],
     types: ["water", "ice"],
     stats: {
@@ -1379,8 +1379,8 @@ const pokemonData = [
     name: "Dewgong",
     index: 87,
     isActive: false,
-    currentHp: 90,
-    totalHp: 90 * 4, // 360
+    currentHp: 360,
+    totalHp: 360, // 360
     moves: ["Aurora Beam", "Ice Beam", "Dive"],
     types: ["water", "ice"],
     stats: {
@@ -1395,8 +1395,8 @@ const pokemonData = [
     name: "Grimer",
     index: 88,
     isActive: false,
-    currentHp: 80,
-    totalHp: 80 * 4, // 320
+    currentHp: 320,
+    totalHp: 320, // 320
     moves: ["Sludge", "Pound"],
     types: ["poison"],
     stats: {
@@ -1411,8 +1411,8 @@ const pokemonData = [
     name: "Muk",
     index: 89,
     isActive: false,
-    currentHp: 105,
-    totalHp: 105 * 4, // 420
+    currentHp: 420,
+    totalHp: 420, // 420
     moves: ["Sludge Bomb", "Gunk Shot", "Poison Jab"],
     types: ["poison"],
     stats: {
@@ -1427,8 +1427,8 @@ const pokemonData = [
     name: "Shellder",
     index: 90,
     isActive: false,
-    currentHp: 30,
-    totalHp: 30 * 4, // 120
+    currentHp: 120,
+    totalHp: 120, // 120
     moves: ["Tackle", "Ice Beam", "Clamp"],
     types: ["water", "ice"],
     stats: {
@@ -1443,8 +1443,8 @@ const pokemonData = [
     name: "Cloyster",
     index: 91,
     isActive: false,
-    currentHp: 50,
-    totalHp: 50 * 4, // 200
+    currentHp: 200,
+    totalHp: 200, // 200
     moves: ["Ice Beam", "Hydro Pump", "Clamp", "Aurora Beam"],
     types: ["water", "ice"],
     stats: {
@@ -1459,8 +1459,8 @@ const pokemonData = [
     name: "Gastly",
     index: 92,
     isActive: false,
-    currentHp: 30,
-    totalHp: 30 * 4, // 120
+    currentHp: 120,
+    totalHp: 120, // 120
     moves: ["Lick", "Shadow Ball"],
     types: ["ghost", "poison"],
     stats: {
@@ -1475,8 +1475,8 @@ const pokemonData = [
     name: "Haunter",
     index: 93,
     isActive: false,
-    currentHp: 45,
-    totalHp: 45 * 4, // 180
+    currentHp: 180,
+    totalHp: 180, // 180
     moves: ["Shadow Ball", "Lick", "Confusion"],
     types: ["ghost", "poison"],
     stats: {
@@ -1491,8 +1491,8 @@ const pokemonData = [
     name: "Gengar",
     index: 94,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Shadow Ball", "Sludge Bomb", "Psychic", "Thunderbolt"],
     types: ["ghost", "poison"],
     stats: {
@@ -1507,8 +1507,8 @@ const pokemonData = [
     name: "Onix",
     index: 95,
     isActive: false,
-    currentHp: 35,
-    totalHp: 35 * 4, // 140
+    currentHp: 140,
+    totalHp: 140, // 140
     moves: ["Tackle", "Rock Throw", "Bind", "Earthquake"],
     types: ["rock", "ground"],
     stats: {
@@ -1523,8 +1523,8 @@ const pokemonData = [
     name: "Drowzee",
     index: 96,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Confusion", "Headbutt", "Psybeam"],
     types: ["psychic"],
     stats: {
@@ -1539,8 +1539,8 @@ const pokemonData = [
     name: "Hypno",
     index: 97,
     isActive: false,
-    currentHp: 85,
-    totalHp: 85 * 4, // 340
+    currentHp: 340,
+    totalHp: 340, // 340
     moves: ["Psychic", "Headbutt", "Zen Headbutt"],
     types: ["psychic"],
     stats: {
@@ -1555,8 +1555,8 @@ const pokemonData = [
     name: "Krabby",
     index: 98,
     isActive: false,
-    currentHp: 30,
-    totalHp: 30 * 4, // 120
+    currentHp: 120,
+    totalHp: 120, // 120
     moves: ["Vice Grip", "Bubble"],
     types: ["water"],
     stats: {
@@ -1571,8 +1571,8 @@ const pokemonData = [
     name: "Kingler",
     index: 99,
     isActive: false,
-    currentHp: 55,
-    totalHp: 55 * 4, // 220
+    currentHp: 220,
+    totalHp: 220, // 220
     moves: ["Crabhammer", "Vice Grip", "Slam"],
     types: ["water"],
     stats: {
@@ -1587,8 +1587,8 @@ const pokemonData = [
     name: "Voltorb",
     index: 100,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Tackle", "Thunderbolt"],
     types: ["electric"],
     stats: {
@@ -1603,8 +1603,8 @@ const pokemonData = [
     name: "Electrode",
     index: 101,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Thunderbolt", "Rollout", "Spark"],
     types: ["electric"],
     stats: {
@@ -1619,8 +1619,8 @@ const pokemonData = [
     name: "Exeggcute",
     index: 102,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Confusion", "Razor Leaf"],
     types: ["grass", "psychic"],
     stats: {
@@ -1635,8 +1635,8 @@ const pokemonData = [
     name: "Exeggutor",
     index: 103,
     isActive: false,
-    currentHp: 95,
-    totalHp: 95 * 4, // 380
+    currentHp: 380,
+    totalHp: 380, // 380
     moves: ["Razor Leaf", "Psychic", "Slam"],
     types: ["grass", "psychic"],
     stats: {
@@ -1651,8 +1651,8 @@ const pokemonData = [
     name: "Cubone",
     index: 104,
     isActive: false,
-    currentHp: 50,
-    totalHp: 50 * 4, // 200
+    currentHp: 200,
+    totalHp: 200, // 200
     moves: ["Bone Club", "Headbutt"],
     types: ["rock"],
     stats: {
@@ -1667,8 +1667,8 @@ const pokemonData = [
     name: "Marowak",
     index: 105,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Bone Club", "Bonemerang", "Rock Slide"],
     types: ["ground"],
     stats: {
@@ -1683,8 +1683,8 @@ const pokemonData = [
     name: "Hitmonlee",
     index: 106,
     isActive: false,
-    currentHp: 50,
-    totalHp: 50 * 4, // 200
+    currentHp: 200,
+    totalHp: 200, // 200
     moves: ["High Jump Kick", "Rolling Kick", "Reversal"],
     types: ["fighting"],
     stats: {
@@ -1699,8 +1699,8 @@ const pokemonData = [
     name: "Hitmonchan",
     index: 107,
     isActive: false,
-    currentHp: 50,
-    totalHp: 50 * 4, // 200
+    currentHp: 200,
+    totalHp: 200, // 200
     moves: ["Fire Punch", "Ice Punch", "Thunder Punch", "Mega Punch"],
     types: ["fighting"],
     stats: {
@@ -1715,8 +1715,8 @@ const pokemonData = [
     name: "Lickitung",
     index: 108,
     isActive: false,
-    currentHp: 55,
-    totalHp: 55 * 4, // 220
+    currentHp: 220,
+    totalHp: 220, // 220
     moves: ["Lick", "Body Slam", "Mega Punch"],
     types: ["normal"],
     stats: {
@@ -1731,8 +1731,8 @@ const pokemonData = [
     name: "Koffing",
     index: 109,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Sludge", "Tackle"],
     types: ["poison"],
     stats: {
@@ -1747,8 +1747,8 @@ const pokemonData = [
     name: "Weezing",
     index: 110,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Sludge Bomb", "Flamethrower", "Body Slam"],
     types: ["poison"],
     stats: {
@@ -1763,8 +1763,8 @@ const pokemonData = [
     name: "Rhyhorn",
     index: 111,
     isActive: false,
-    currentHp: 80,
-    totalHp: 80 * 4, // 320
+    currentHp: 320,
+    totalHp: 320, // 320
     moves: ["Horn Attack", "Rock Blast", "Take Down"],
     types: ["rock", "ground"],
     stats: {
@@ -1779,8 +1779,8 @@ const pokemonData = [
     name: "Rhydon",
     index: 112,
     isActive: false,
-    currentHp: 105,
-    totalHp: 105 * 4, // 420
+    currentHp: 420,
+    totalHp: 420, // 420
     moves: ["Earthquake", "Rock Slide", "Take Down", "Headbutt"],
     types: ["rock", "ground"],
     stats: {
@@ -1795,8 +1795,8 @@ const pokemonData = [
     name: "Chansey",
     index: 113,
     isActive: false,
-    currentHp: 250,
-    totalHp: 250 * 4, // 1000
+    currentHp: 1000,
+    totalHp: 1000, // 1000
     moves: ["Seismic Toss", "Thunderbolt", "Ice Beam"],
     types: ["normal"],
     stats: {
@@ -1811,9 +1811,9 @@ const pokemonData = [
     name: "Tangela",
     index: 114,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
-    moves: ["Vine Whip", "SolarBeam", "Constrict"],
+    currentHp: 260,
+    totalHp: 260, // 260
+    moves: ["Vine Whip", "Solar Beam", "Constrict"],
     types: ["grass"],
     stats: {
       attack: 55,
@@ -1827,8 +1827,8 @@ const pokemonData = [
     name: "Kangaskhan",
     index: 115,
     isActive: false,
-    currentHp: 105,
-    totalHp: 105 * 4, // 420
+    currentHp: 420,
+    totalHp: 420, // 420
     moves: ["Comet Punch", "Body Slam", "Hyper Beam"],
     types: ["normal"],
     stats: {
@@ -1843,8 +1843,8 @@ const pokemonData = [
     name: "Horsea",
     index: 116,
     isActive: false,
-    currentHp: 30,
-    totalHp: 30 * 4, // 120
+    currentHp: 120,
+    totalHp: 120, // 120
     moves: ["Bubble", "Tackle"],
     types: ["water"],
     stats: {
@@ -1859,8 +1859,8 @@ const pokemonData = [
     name: "Seadra",
     index: 117,
     isActive: false,
-    currentHp: 55,
-    totalHp: 55 * 4, // 220
+    currentHp: 220,
+    totalHp: 220, // 220
     moves: ["Surf", "Ice Beam", "Dragon Breath", "Headbutt"],
     types: ["water"],
     stats: {
@@ -1875,8 +1875,8 @@ const pokemonData = [
     name: "Goldeen",
     index: 118,
     isActive: false,
-    currentHp: 45,
-    totalHp: 45 * 4, // 180
+    currentHp: 180,
+    totalHp: 180, // 180
     moves: ["Peck", "Horn Attack", "Waterfall"],
     types: ["water"],
     stats: {
@@ -1891,8 +1891,8 @@ const pokemonData = [
     name: "Seaking",
     index: 119,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Horn Drill", "Waterfall", "Peck"],
     types: ["water"],
     stats: {
@@ -1907,8 +1907,8 @@ const pokemonData = [
     name: "Staryu",
     index: 120,
     isActive: false,
-    currentHp: 30,
-    totalHp: 30 * 4, // 120
+    currentHp: 120,
+    totalHp: 120, // 120
     moves: ["Tackle", "BubbleBeam", "Confusion"],
     types: ["water"],
     stats: {
@@ -1923,8 +1923,8 @@ const pokemonData = [
     name: "Starmie",
     index: 121,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Surf", "Psychic", "Ice Beam"],
     types: ["water", "psychic"],
     stats: {
@@ -1939,8 +1939,8 @@ const pokemonData = [
     name: "Mr. Mime",
     index: 122,
     isActive: false,
-    currentHp: 40,
-    totalHp: 40 * 4, // 160
+    currentHp: 160,
+    totalHp: 160, // 160
     moves: ["Psychic", "Confusion", "Thunderbolt"],
     types: ["psychic"],
     stats: {
@@ -1955,8 +1955,8 @@ const pokemonData = [
     name: "Scyther",
     index: 123,
     isActive: false,
-    currentHp: 70,
-    totalHp: 70 * 4, // 280
+    currentHp: 280,
+    totalHp: 280, // 280
     moves: ["Fury Cutter", "Quick Attack", "Wing Attack"],
     types: ["bug", "flying"],
     stats: {
@@ -1971,8 +1971,8 @@ const pokemonData = [
     name: "Jynx",
     index: 124,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Ice Beam", "Psychic", "Body Slam"],
     types: ["ice", "psychic"],
     stats: {
@@ -1987,8 +1987,8 @@ const pokemonData = [
     name: "Electabuzz",
     index: 125,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Thunder Punch", "Thunderbolt", "Quick Attack"],
     types: ["electric"],
     stats: {
@@ -2003,8 +2003,8 @@ const pokemonData = [
     name: "Magmar",
     index: 126,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Fire Punch", "Flamethrower", "Headbutt"],
     types: ["fire"],
     stats: {
@@ -2019,8 +2019,8 @@ const pokemonData = [
     name: "Pinsir",
     index: 127,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["X-Scissor", "Vice Grip", "Submission"],
     types: ["bug", "fighting"],
     stats: {
@@ -2035,8 +2035,8 @@ const pokemonData = [
     name: "Tauros",
     index: 128,
     isActive: false,
-    currentHp: 75,
-    totalHp: 75 * 4, // 300
+    currentHp: 300,
+    totalHp: 300, // 300
     moves: ["Body Slam", "Hyper Beam", "Tackle"],
     types: ["normal"],
     stats: {
@@ -2051,8 +2051,8 @@ const pokemonData = [
     name: "Magikarp",
     index: 129,
     isActive: false,
-    currentHp: 20,
-    totalHp: 20 * 4, // 80
+    currentHp: 80,
+    totalHp: 80, // 80
     moves: ["Splash"],
     types: ["water"],
     stats: {
@@ -2067,8 +2067,8 @@ const pokemonData = [
     name: "Gyarados",
     index: 130,
     isActive: false,
-    currentHp: 95,
-    totalHp: 95 * 4, // 380
+    currentHp: 380,
+    totalHp: 380, // 380
     moves: ["Hydro Pump", "Bite", "Hyper Beam", "DragonBreath"],
     types: ["water", "flying"],
     stats: {
@@ -2083,8 +2083,8 @@ const pokemonData = [
     name: "Lapras",
     index: 131,
     isActive: false,
-    currentHp: 130,
-    totalHp: 130 * 4, // 520
+    currentHp: 520,
+    totalHp: 520, // 520
     moves: ["Ice Beam", "Surf", "Psychic", "Slam"],
     types: ["water", "ice"],
     stats: {
@@ -2099,8 +2099,8 @@ const pokemonData = [
     name: "Ditto",
     index: 132,
     isActive: false,
-    currentHp: 48,
-    totalHp: 48 * 4, // 192
+    currentHp: 192,
+    totalHp: 192, // 192
     moves: ["Tackle"],
     types: ["normal"],
     stats: {
@@ -2115,8 +2115,8 @@ const pokemonData = [
     name: "Eevee",
     index: 133,
     isActive: false,
-    currentHp: 55,
-    totalHp: 55 * 4, // 220
+    currentHp: 220,
+    totalHp: 220, // 220
     moves: ["Tackle", "Quick Attack"],
     types: ["normal"],
     stats: {
@@ -2131,7 +2131,7 @@ const pokemonData = [
     name: "Vaporeon",
     index: 134,
     isActive: false,
-    currentHp: 130,
+    currentHp: 520,
     totalHp: 130 * 4, // 520
     moves: ["Surf", "Ice Beam", "Water Gun", "Headbutt"],
     types: ["water"],
@@ -2147,8 +2147,8 @@ const pokemonData = [
     name: "Jolteon",
     index: 135,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Thunderbolt", "Thunder Wave", "Quick Attack"],
     types: ["electric"],
     stats: {
@@ -2163,8 +2163,8 @@ const pokemonData = [
     name: "Flareon",
     index: 136,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Flamethrower", "Fire Spin", "Quick Attack"],
     types: ["fire"],
     stats: {
@@ -2179,8 +2179,8 @@ const pokemonData = [
     name: "Porygon",
     index: 137,
     isActive: false,
-    currentHp: 65,
-    totalHp: 65 * 4, // 260
+    currentHp: 260,
+    totalHp: 260, // 260
     moves: ["Tackle", "Psybeam", "Headbutt"],
     types: ["normal"],
     stats: {
@@ -2195,8 +2195,8 @@ const pokemonData = [
     name: "Omanyte",
     index: 138,
     isActive: false,
-    currentHp: 35,
-    totalHp: 35 * 4, // 140
+    currentHp: 140,
+    totalHp: 140, // 140
     moves: ["Bubble", "Water Gun", "Rock Slide"],
     types: ["rock", "water"],
     stats: {
@@ -2211,8 +2211,8 @@ const pokemonData = [
     name: "Omastar",
     index: 139,
     isActive: false,
-    currentHp: 70,
-    totalHp: 70 * 4, // 280
+    currentHp: 280,
+    totalHp: 280, // 280
     moves: ["Hydro Pump", "Rock Slide", "Ice Beam", "Tackle"],
     types: ["rock", "water"],
     stats: {
@@ -2227,8 +2227,8 @@ const pokemonData = [
     name: "Kabuto",
     index: 140,
     isActive: false,
-    currentHp: 30,
-    totalHp: 30 * 4, // 120
+    currentHp: 120,
+    totalHp: 120, // 120
     moves: ["Scratch", "Water Gun", "Mud Shot"],
     types: ["rock", "water"],
     stats: {
@@ -2243,8 +2243,8 @@ const pokemonData = [
     name: "Kabutops",
     index: 141,
     isActive: false,
-    currentHp: 60,
-    totalHp: 60 * 4, // 240
+    currentHp: 240,
+    totalHp: 240, // 240
     moves: ["Rock Throw", "Slash", "Waterfall", "Headbutt"],
     types: ["rock", "water"],
     stats: {
@@ -2259,8 +2259,8 @@ const pokemonData = [
     name: "Aerodactyl",
     index: 142,
     isActive: false,
-    currentHp: 80,
-    totalHp: 80 * 4, // 320
+    currentHp: 320,
+    totalHp: 320, // 320
     moves: ["Hyper Beam", "Aerial Ace", "Rock Slide", "Wing Attack"],
     types: ["rock", "flying"],
     stats: {
@@ -2275,8 +2275,8 @@ const pokemonData = [
     name: "Snorlax",
     index: 143,
     isActive: false,
-    currentHp: 160,
-    totalHp: 160 * 4, // 640
+    currentHp: 640,
+    totalHp: 640, // 640
     moves: ["Body Slam", "Hyper Beam", "Headbutt", "Earthquake"],
     types: ["normal"],
     stats: {
@@ -2291,8 +2291,8 @@ const pokemonData = [
     name: "Articuno",
     index: 144,
     isActive: false,
-    currentHp: 90,
-    totalHp: 90 * 4, // 360
+    currentHp: 360,
+    totalHp: 360, // 360
     moves: ["Ice Beam", "Blizzard", "Hurricane", "Wing Attack"],
     types: ["ice", "flying"],
     stats: {
@@ -2307,8 +2307,8 @@ const pokemonData = [
     name: "Zapdos",
     index: 145,
     isActive: false,
-    currentHp: 90,
-    totalHp: 90 * 4, // 360
+    currentHp: 360,
+    totalHp: 360, // 360
     moves: ["Thunderbolt", "Drill Peck", "Thunder", "Wing Attack"],
     types: ["electric", "flying"],
     stats: {
@@ -2323,8 +2323,8 @@ const pokemonData = [
     name: "Moltres",
     index: 146,
     isActive: false,
-    currentHp: 90,
-    totalHp: 90 * 4, // 360
+    currentHp: 360,
+    totalHp: 360, // 360
     moves: ["Flamethrower", "Fire Blast", "Sky Attack", "Wing Attack"],
     types: ["fire", "flying"],
     stats: {
@@ -2339,8 +2339,8 @@ const pokemonData = [
     name: "Dratini",
     index: 147,
     isActive: false,
-    currentHp: 41,
-    totalHp: 41 * 4, // 164
+    currentHp: 164,
+    totalHp: 164, // 164
     moves: ["Wrap", "Dragon Rage"],
     types: ["dragon"],
     stats: {
@@ -2355,8 +2355,8 @@ const pokemonData = [
     name: "Dragonair",
     index: 148,
     isActive: false,
-    currentHp: 61,
-    totalHp: 61 * 4, // 244
+    currentHp: 244,
+    totalHp: 244, // 244
     moves: ["Dragon Tail", "Dragon Rage", "Slam"],
     types: ["dragon"],
     stats: {
@@ -2371,8 +2371,8 @@ const pokemonData = [
     name: "Dragonite",
     index: 149,
     isActive: false,
-    currentHp: 91,
-    totalHp: 91 * 4, // 364
+    currentHp: 364,
+    totalHp: 364, // 364
     moves: ["Hyper Beam", "Outrage", "Dragon Claw", "Wing Attack"],
     types: ["dragon", "flying"],
     stats: {
@@ -2387,8 +2387,8 @@ const pokemonData = [
     name: "Mewtwo",
     index: 150,
     isActive: false,
-    currentHp: 106,
-    totalHp: 106 * 4, // 424
+    currentHp: 424,
+    totalHp: 424, // 424
     moves: ["Psychic", "Ice Beam", "Hyper Beam", "Thunderbolt"],
     types: ["psychic"],
     stats: {
@@ -2403,8 +2403,8 @@ const pokemonData = [
     name: "Mew",
     index: 151,
     isActive: false,
-    currentHp: 100,
-    totalHp: 100 * 4, // 400
+    currentHp: 400,
+    totalHp: 400, // 400
     moves: ["Psychic", "Ancient Power", "Hyper Beam", "Flamethrower"],
     types: ["psychic"],
     stats: {

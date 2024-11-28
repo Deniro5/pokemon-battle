@@ -63,5 +63,6 @@ export type BattleState = {
   turnType: TurnType;
   playerIds: string[];
   status: BattleStatus;
+  turnCount: number;
   text: string;
 };

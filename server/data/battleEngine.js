@@ -1,5 +1,6 @@
 const pokemonData = require("./pokemonData");
 const typeAttackChart = require("./typeAttackChart");
+const moves = require("./moves");
 const User = require("../models/user.model");
 
 //Connect battle (different file)
@@ -42,17 +43,82 @@ const queueTurn = (battleState, turn) => {
 };
 
 const processTurns = (battleState) => {
-  let newBattleState = battleState;
-  battleState.queuedTurns.forEach((turn) => {
-    if (turn.turnType === "switch") {
-      newBattleState = setActivePokemon(
-        newBattleState,
-        turn.pokemon,
-        turn.userId
-      );
-    }
-  });
+  const newBattleState = handleTurn(
+    battleState.queuedTurns[0],
+    battleState.queuedTurns[1],
+    battleState
+  );
+
   newBattleState.queuedTurns = [];
+
+  return newBattleState;
+};
+
+const handleTurn = (firstTurn, secondTurn, battleState) => {
+  let newBattleState = battleState;
+
+  if (firstTurn.turnType === "switch" && secondTurn?.turnType === "switch") {
+    newBattleState = setActivePokemon(
+      newBattleState,
+      firstTurn.pokemon,
+      firstTurn.userId
+    );
+    newBattleState = setActivePokemon(
+      newBattleState,
+      secondTurn.pokemon,
+      secondTurn.userId
+    );
+    newBattleState.turnType = "attack";
+    newBattleState.currentTurn = newBattleState.playerIds;
+    newBattleState.text = `${firstTurn.pokemon.name} was sent out to battle. ${secondTurn.pokemon.name} was sent out to battle. \n`;
+  }
+
+  if (firstTurn.turnType === "attack" && secondTurn?.turnType === "attack") {
+    const firstSpeed = firstTurn.attacker.stats.speed;
+    const secondSpeed = secondTurn.attacker.stats.speed;
+
+    if (firstSpeed > secondSpeed) {
+      const firstDamage = calculateDamage(
+        firstTurn.attacker,
+        firstTurn.defender,
+        firstTurn.move
+      );
+
+      battleState.activePokemon[secondTurn.userId].currentHp -= firstDamage;
+
+      newBattleState.text = `${firstTurn.attacker.name} used ${firstTurn.move}.`;
+
+      if (battleState.activePokemon[secondTurn.userId].currentHp === 0) {
+        newBattleState.text += `${firstTurn.defender.name} fainted.`;
+        newBattleState.turnType = "switch";
+        newBattleState.currentTurn = [secondTurn.userId];
+        newBattleState.queuedTurns = [];
+        return newBattleState;
+      }
+
+      const secondDamage = calculateDamage(
+        secondTurn.attacker,
+        secondTurn.defender,
+        secondTurn.move
+      );
+
+      battleState.activePokemon[firstTurn.userId].currentHp -= secondDamage;
+      newBattleState.text += `${secondTurn.attacker.name} used ${secondTurn.move}.`;
+
+      if (battleState.activePokemon[firstTurn.userId].currentHp === 0) {
+        newBattleState.text += `${secondTurn.defender.name} fainted.`;
+        newBattleState.turnType = "switch";
+        newBattleState.currentTurn = [firstTurn.userId];
+        newBattleState.queuedTurns = [];
+        return newBattleState;
+      }
+    }
+  }
+
+  newBattleState.turnCount++;
+  newBattleState.text +=
+    "\n Choose an attack to use or click on a pokemon on your team to switch.";
+  newBattleState.currentTurn = [...newBattleState.playerIds];
   return newBattleState;
 };
 
@@ -76,6 +142,7 @@ const getInitialBattleState = (player1, player2, battleId) => {
     currentTurn: [player1._id, player2._id],
     turnType: "switch",
     status: "in progress",
+    turnCount: 0,
     text: "Choose a pokemon to send into battle",
   };
 };
@@ -102,42 +169,33 @@ const setActivePokemon = (battleState, activePokemon, userId) => {
 
 //handle a turn
 
-const handleTurn = (userTurn, opponentTurn, battleState) => {
-  let battleText = "";
-  if (userTurn.type === "switch" && opponentTurn.type === "switch") {
-    setUserActivePokemon(battleState, userTurn.newActivePokemon);
-    setOpponentActivePokemon(battleState, opponentTurn.newActivePokemon);
+function titleCaseToUnderscore(input) {
+  return input.replace(" ", "_");
+}
 
-    battleText = `You sent ${userTurn.newActivePokemon.name} out to battle. Your opponent sent ${opponentTurn.newActivePokemon.name} out to battle`;
-  }
+const calculateDamage = (attacker, defender, movename, baseLevel = 50) => {
+  const move = moves[titleCaseToUnderscore(movename)];
 
-  if (userTurn.type === "switch") {
-    markActivePokemon(userTeam, userTurn.pokemon);
-    calculateDamage(
-      battleState.opponentPokemon,
-      battleState.userPokemon,
-      opponentTurn.move
-    );
-
-    battleText = `You sent ${userTurn.newActivePokemon.name} out to battle. The opponent's ${opponentTurn.newActivePokemon.name} used ${opponentTurn.move.name}`;
-  }
-};
-
-const calculateDamage = (attacker, defender, move, baseLevel = 50) => {
   const calculateEffectiveness = (moveType, defenderTypes) => {
     return defenderTypes.reduce((multiplier, type) => {
       return multiplier * (typeAttackChart[moveType]?.[type] || 1);
     }, 1);
   };
 
-  const attackStat = move.isPhysical ? attacker.attack : attacker.specialAttack;
+  const attackStat = move.isPhysical
+    ? attacker.stats.attack
+    : attacker.stats.specialAttack;
   const defenseStat = move.isPhysical
-    ? defender.defense
-    : defender.specialDefense;
+    ? defender.stats.defense
+    : defender.stats.specialDefense;
 
   const effectiveness = calculateEffectiveness(move.type, defender.types);
 
+  console.log(effectiveness);
+
   const sameTypeAttackBonus = attacker.types.includes(move.type) ? 1.25 : 1;
+
+  console.log(sameTypeAttackBonus);
 
   const baseDamage =
     (((2 * baseLevel) / 5 + 2) * move.power * (attackStat / defenseStat)) / 50 +

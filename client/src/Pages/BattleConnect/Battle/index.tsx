@@ -50,6 +50,19 @@ export default function Battle({ battleState, socket }: BattleProps) {
     });
   };
 
+  const handleAttackClick = (move: string) => {
+    if (!isUserTurn || turnType !== TurnType.ATTACK) return;
+
+    socket.emit("turn", {
+      battleId: battleState.id,
+      userId: user._id,
+      attacker: userPokemon,
+      defender: opponentPokemon,
+      move,
+      turnType: TurnType.ATTACK,
+    });
+  };
+
   return (
     <BattleContainer>
       <Flex>
@@ -57,8 +70,11 @@ export default function Battle({ battleState, socket }: BattleProps) {
           <TeamDisplay team={userTeam} onClick={handleTeamClick} />
           <Name> {user.username} </Name>
         </TeamContainer>
-        <ActivePokemon pokemon={userPokemon} />
-        <ActivePokemon pokemon={opponentPokemon} />
+        <ActivePokemon
+          pokemon={userPokemon}
+          handleAttackClick={handleAttackClick}
+        />
+        <ActivePokemon handleAttackClick={() => {}} pokemon={opponentPokemon} />
         <TeamContainer>
           <TeamDisplay team={opponentTeam} />
           <Name> {opponentName} </Name>

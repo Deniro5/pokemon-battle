@@ -4,9 +4,13 @@ import { BattlePokemon } from "../../../../types";
 
 type ActivePokemonProps = {
   pokemon: BattlePokemon;
+  handleAttackClick: (move: string) => void;
 };
 
-export default function ActivePokemon({ pokemon }: ActivePokemonProps) {
+export default function ActivePokemon({
+  pokemon,
+  handleAttackClick,
+}: ActivePokemonProps) {
   return (
     <PokemonContainer>
       {pokemon ? (
@@ -18,10 +22,12 @@ export default function ActivePokemon({ pokemon }: ActivePokemonProps) {
           />
           <HealthContainer>
             {" "}
-            <Health />{" "}
+            <Health
+              current={(pokemon.currentHp / pokemon.totalHp) * 100}
+            />{" "}
           </HealthContainer>
           {pokemon.moves.map((move) => (
-            <Move> {move}</Move>
+            <Move onClick={() => handleAttackClick(move)}> {move}</Move>
           ))}
         </>
       ) : (
@@ -68,9 +74,9 @@ const HealthContainer = styled.div`
   margin: 8px 0px;
 `;
 
-const Health = styled.div`
+const Health = styled.div<{ current: number }>`
   background: orangered;
-  width: 90%;
+  width: ${({ current }) => current}%;
   border-radius: 90px;
   height: 18px;
 `;
