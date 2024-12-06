@@ -389,7 +389,7 @@ const pokemonData = [
     isActive: false,
     currentHp: 140,
     totalHp: 140, // 140
-    moves: ["Thunder Shock", "Quick Attack", "Iron Tail", "Electro Ball"],
+    moves: ["Thunderbolt", "Quick Attack", "Iron Tail", "Electro Ball"],
     types: ["electric"],
     stats: {
       attack: 55,
@@ -1285,7 +1285,7 @@ const pokemonData = [
     isActive: false,
     currentHp: 100,
     totalHp: 100, // 100
-    moves: ["Thunder Shock", "Magnet Bomb"],
+    moves: ["Thunderbolt", "Magnet Bomb"],
     types: ["steel", "electric"],
     stats: {
       attack: 35,

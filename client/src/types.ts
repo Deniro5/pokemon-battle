@@ -20,7 +20,7 @@ export type User = {
 export type BattlePokemon = {
   name: string;
   index: number;
-  isActive: boolean;
+  id: number;
   currentHp: number;
   totalHp: number;
   moves: string[];
@@ -47,6 +47,11 @@ export enum TurnType {
   ATTACK = "attack", // attack turn. you can switch here too
 }
 
+export type LogEntry = {
+  type: "header" | "text";
+  text: string;
+};
+
 export type BattleState = {
   id: string;
   teams: {
@@ -65,4 +70,5 @@ export type BattleState = {
   status: BattleStatus;
   turnCount: number;
   text: string;
+  log: LogEntry[];
 };

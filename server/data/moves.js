@@ -33,7 +33,7 @@ const moves = {
   Bite: { power: 60, accuracy: 100, type: "dark", isPhysical: true },
   Hyper_Fang: { power: 80, accuracy: 90, type: "normal", isPhysical: true },
   Headbutt: { power: 70, accuracy: 100, type: "normal", isPhysical: true },
-  Drill_Peck: { power: 80, accuracy: 100, type: "flying", isPhysical: true },
+  Drill_Peck: { power: 800, accuracy: 100, type: "flying", isPhysical: true }, //CHANGE BACK
   Iron_Tail: { power: 100, accuracy: 75, type: "steel", isPhysical: true },
   Electro_Ball: { power: 80, accuracy: 100, type: "electric" },
   Thunder_Punch: {
@@ -52,7 +52,8 @@ const moves = {
   Hyper_Voice: { power: 90, accuracy: 100, type: "normal" },
   Leech_Life: { power: 20, accuracy: 100, type: "bug", isPhysical: true },
   Astonish: { power: 30, accuracy: 100, type: "ghost" },
-  SolarBeam: { power: 120, accuracy: 100, type: "grass" },
+  Solar_Beam: { power: 120, accuracy: 100, type: "grass" },
+  Take_Down: { power: 95, accuracy: 85, type: "grass" },
   Rock_Throw: { power: 50, accuracy: 90, type: "rock", isPhysical: true },
   Dig: { power: 80, accuracy: 100, type: "ground", isPhysical: true },
   Fury_Swipes: { power: 18, accuracy: 80, type: "normal", isPhysical: true },

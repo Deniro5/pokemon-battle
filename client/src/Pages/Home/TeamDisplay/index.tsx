@@ -36,6 +36,12 @@ export default function TeamDisplay<T>({ team, onClick }: TeamDisplayProps<T>) {
             />{" "}
           </Tile>
           <Name>{pokemon?.name}</Name>
+          <HealthContainer>
+            {" "}
+            <Health
+              current={(pokemon.currentHp / pokemon.totalHp) * 100}
+            />{" "}
+          </HealthContainer>
         </TileContainer>
       ))}
     </TeamGrid>
@@ -64,10 +70,25 @@ const Tile = styled.div`
 
 const Name = styled.p`
   margin-top: 4px;
+  margin-bottom: 12px;
 `;
 
 const TileContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const HealthContainer = styled.div`
+  height: 12px;
+  border-radius: 90px;
+  border: 1px solid lightgrey;
+  width: 80px;
+`;
+
+const Health = styled.div<{ current: number }>`
+  background: orangered;
+  width: ${({ current }) => current}%;
+  border-radius: 90px;
+  height: 10px;
 `;

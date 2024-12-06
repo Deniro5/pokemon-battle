@@ -42,10 +42,16 @@ export default function Battle({ battleState, socket }: BattleProps) {
   const handleTeamClick = (pokemon: BattlePokemon) => {
     if (!isUserTurn) return;
 
+    console.log(pokemon);
+    if (pokemon.currentHp <= 0) {
+      alert(`${pokemon.name} has fainted and cannot be sent out to battle`);
+      return;
+    }
+
     socket.emit("turn", {
       battleId: battleState.id,
       userId: user._id,
-      pokemon,
+      pokemonId: pokemon.id,
       turnType: TurnType.SWITCH,
     });
   };
@@ -62,6 +68,8 @@ export default function Battle({ battleState, socket }: BattleProps) {
       turnType: TurnType.ATTACK,
     });
   };
+
+  console.log(userTeam);
 
   return (
     <BattleContainer>
@@ -81,6 +89,16 @@ export default function Battle({ battleState, socket }: BattleProps) {
         </TeamContainer>
       </Flex>
       <BattleText> {battleState.text} </BattleText>
+      <BattleLog>
+        {" "}
+        {battleState.log.map((item) =>
+          item.type === "header" ? (
+            <BattleLogHeader> {item.text} </BattleLogHeader>
+          ) : (
+            <BattleLogText> {item.text} </BattleLogText>
+          )
+        )}{" "}
+      </BattleLog>
     </BattleContainer>
   );
 }
@@ -104,3 +122,13 @@ const BattleText = styled.div`
   padding: 24px;
   margin-top: 48px;
 `;
+
+const BattleLog = styled(BattleText)`
+  height: 500px;
+  overflow: scroll;
+`;
+
+const BattleLogHeader = styled.h3`
+  margin-top: 24px;
+`;
+const BattleLogText = styled.p``;
