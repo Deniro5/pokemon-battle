@@ -81,7 +81,6 @@ const handleTurn = (firstTurn, secondTurn, battleState) => {
     const opponentTurn = turnsInOrder[1 - index]; //if this is the second turn then opponent is first and vice versa
 
     if (turn.turnType === "switch") {
-      console.log(turn);
       newBattleState = setActivePokemon(
         newBattleState,
         turn.pokemonId,
@@ -123,6 +122,9 @@ const handleTurn = (firstTurn, secondTurn, battleState) => {
         });
         newBattleState.turnType = "switch";
         newBattleState.currentTurn = [opponentTurn.userId];
+        newBattleState.text[opponentTurn.userId] =
+          "Choose a pokemon to send into battle";
+        newBattleState.text[turn.userId] = "Waiting for opponent...";
         newBattleState.queuedTurns = [];
         return newBattleState;
       }
@@ -130,7 +132,9 @@ const handleTurn = (firstTurn, secondTurn, battleState) => {
   }
 
   newBattleState.turnCount++;
-  newBattleState.text +=
+  newBattleState.text[newBattleState.playerIds[0]] =
+    "Choose an attack to use or click on a pokemon on your team to switch.";
+  newBattleState.text[newBattleState.playerIds[1]] =
     "Choose an attack to use or click on a pokemon on your team to switch.";
   newBattleState.currentTurn = newBattleState.playerIds;
   newBattleState.turnType = "attack";
@@ -159,7 +163,10 @@ const getInitialBattleState = (player1, player2, battleId) => {
     turnType: "switch",
     status: "in progress",
     turnCount: 0,
-    text: "Choose a pokemon to send into battle",
+    text: {
+      [player1._id]: "Choose a pokemon to send into battle",
+      [player2._id]: "Choose a pokemon to send into battle",
+    },
     log: [],
   };
 };

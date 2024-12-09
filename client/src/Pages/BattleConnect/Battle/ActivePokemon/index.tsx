@@ -5,11 +5,13 @@ import { BattlePokemon } from "../../../../types";
 type ActivePokemonProps = {
   pokemon: BattlePokemon;
   handleAttackClick: (move: string) => void;
+  hideMoves?: boolean;
 };
 
 export default function ActivePokemon({
   pokemon,
   handleAttackClick,
+  hideMoves,
 }: ActivePokemonProps) {
   return (
     <PokemonContainer>
@@ -26,9 +28,10 @@ export default function ActivePokemon({
               current={(pokemon.currentHp / pokemon.totalHp) * 100}
             />{" "}
           </HealthContainer>
-          {pokemon.moves.map((move) => (
-            <Move onClick={() => handleAttackClick(move)}> {move}</Move>
-          ))}
+          {!hideMoves &&
+            pokemon.moves.map((move) => (
+              <Move onClick={() => handleAttackClick(move)}> {move}</Move>
+            ))}
         </>
       ) : (
         <Sprite

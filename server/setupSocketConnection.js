@@ -34,7 +34,7 @@ module.exports = (io) => {
           newBattleState
         );
       } else {
-        newBattleState.text = "Waiting for opponent...";
+        newBattleState.text[userId] = "Waiting for opponent...";
       }
 
       socket.emit("update_state", newBattleState);

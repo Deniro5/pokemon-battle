@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Button, LinkButton } from "../../styles";
+import { LinkButton } from "../../styles";
 import TeamDisplay from "./TeamDisplay";
-import { Link } from "react-router-dom";
 import Stats from "./Stats";
 import useStore from "../../zustand/store";
 
