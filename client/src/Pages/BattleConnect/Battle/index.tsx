@@ -1,9 +1,14 @@
 import TeamDisplay from "../../Home/TeamDisplay";
 import ActivePokemon from "./ActivePokemon";
-import { BattlePokemon, BattleState, TurnType } from "../../../types";
+import {
+  BattlePokemon,
+  BattleState,
+  BattleStatus,
+  TurnType,
+} from "../../../types";
 import useStore from "../../../zustand/store";
 import styled from "styled-components";
-import { Flex } from "../../../styles";
+import { Flex, LinkButton } from "../../../styles";
 import { Socket } from "socket.io-client";
 import BattleLog from "./BattleLog";
 import BattleTeamDisplay from "./BattleTeamDisplay";
@@ -85,7 +90,12 @@ export default function Battle({ battleState, socket }: BattleProps) {
           <Name> {opponentName} </Name>
         </TeamContainer>
       </Flex>
-      <BattleText> {battleState.text[user._id]} </BattleText>
+      <BattleText>
+        {battleState.text[user._id]}
+        {battleState.status === BattleStatus.FINISHED && (
+          <LinkButton to="/"> Return Home </LinkButton>
+        )}
+      </BattleText>
       <BattleLog log={battleState.log} />
     </BattleContainer>
   );
@@ -105,6 +115,9 @@ const Name = styled.p`
 `;
 
 const BattleText = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 24px;
   border: 1px solid lightgrey;
   border-radius: 4px;
   padding: 24px;

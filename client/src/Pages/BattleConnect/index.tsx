@@ -6,6 +6,7 @@ import { io, Socket } from "socket.io-client";
 import WaitScreen from "./WaitScreen";
 import ConnectError from "./ConnectError";
 import Battle from "./Battle";
+import Disconnect from "./Disconnect";
 
 export default function BattleConnect() {
   const { user } = useStore();
@@ -34,14 +35,19 @@ export default function BattleConnect() {
     });
 
     newSocket.on("update_state", (battleState) => {
-      console.log(battleState);
       setBattleState(battleState);
+      if (battleState.status === BattleStatus.FINISHED) {
+        newSocket.disconnect();
+        setSocket(null);
+      }
     });
 
-    setSocket(newSocket);
+    newSocket.on("opponent_disconnected", () => {
+      setBattleStatus(BattleStatus.DISCONNECTED);
+      setBattleState(null);
+    });
 
     return () => {
-      newSocket.emit("handle-disconnect", user?._id);
       newSocket.disconnect();
       setSocket(null);
     };
@@ -49,6 +55,7 @@ export default function BattleConnect() {
 
   const getContent = () => {
     if (battleStatus === BattleStatus.WAITING) return <WaitScreen />;
+    if (battleStatus === BattleStatus.DISCONNECTED) return <Disconnect />;
     if (battleStatus === BattleStatus.CONNECT_ERROR) return <ConnectError />;
     if (battleStatus === BattleStatus.CONNECTED && !!battleState && !!socket)
       return <Battle battleState={battleState} socket={socket} />;

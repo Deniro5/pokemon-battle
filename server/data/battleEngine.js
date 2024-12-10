@@ -3,10 +3,6 @@ const typeAttackChart = require("./typeAttackChart");
 const moves = require("./moves");
 const User = require("../models/user.model");
 
-//Connect battle (different file)
-
-//Take user teams and return 'battle object'
-
 const startBattle = async (player1Id, player2Id) => {
   try {
     const users = await User.find({
@@ -42,14 +38,15 @@ const queueTurn = (battleState, turn) => {
   };
 };
 
-const processTurns = (battleState) => {
-  const newBattleState = handleTurn(
+const processTurns = async (battleState) => {
+  const newBattleState = await handleTurn(
     battleState.queuedTurns[0],
     battleState.queuedTurns[1],
     battleState
   );
 
   newBattleState.queuedTurns = [];
+
   return newBattleState;
 };
 
@@ -66,8 +63,9 @@ const getTurnsInOrder = (firstTurn, secondTurn) => {
     : [secondTurn, firstTurn];
 };
 
-const handleTurn = (firstTurn, secondTurn, battleState) => {
+const handleTurn = async (firstTurn, secondTurn, battleState) => {
   let newBattleState = battleState;
+
   if (newBattleState.turnCount > 0 && secondTurn)
     //only want to add the turn header if both players move and its not the first turn
     newBattleState.log.push({
@@ -86,6 +84,9 @@ const handleTurn = (firstTurn, secondTurn, battleState) => {
         turn.pokemonId,
         turn.userId
       );
+
+      console.log(newBattleState.activePokemon);
+
       newBattleState.log.push({
         type: "text",
         text: `${
@@ -120,12 +121,26 @@ const handleTurn = (firstTurn, secondTurn, battleState) => {
           type: "text",
           text: `${turn.defender.name} fainted.`,
         });
+
+        const isBattleOver = checkIsBattleOver(
+          newBattleState.teams[opponentTurn.userId]
+        );
+
+        if (isBattleOver) {
+          await handleBattleOver(opponentTurn.userId, turn.userId);
+          newBattleState.currentTurn = [];
+          newBattleState.status = "finished";
+          newBattleState.text[opponentTurn.userId] = "You lost the battle.";
+          newBattleState.text[turn.userId] = "You won the battle!";
+          return newBattleState;
+        }
+
         newBattleState.turnType = "switch";
         newBattleState.currentTurn = [opponentTurn.userId];
         newBattleState.text[opponentTurn.userId] =
           "Choose a pokemon to send into battle";
         newBattleState.text[turn.userId] = "Waiting for opponent...";
-        newBattleState.queuedTurns = [];
+
         return newBattleState;
       }
     }
@@ -174,8 +189,6 @@ const getInitialBattleState = (player1, player2, battleId) => {
 //Each user chooses a pokemon to switch in
 
 const setActivePokemon = (battleState, newActivePokemonId, userId) => {
-  //change the active pokemon for the user and end their turn
-
   const newActivePokemonIndex = battleState.teams[userId].findIndex(
     (pokemon) => pokemon.id == newActivePokemonId
   );
@@ -204,8 +217,21 @@ function titleCaseToUnderscore(input) {
   return input.replace(" ", "_");
 }
 
+const checkAttackHit = (accuracy) =>
+  Math.floor(Math.random() * 100) + 1 <= accuracy;
+
 const calculateDamage = (attacker, defender, movename, baseLevel = 50) => {
   const move = moves[titleCaseToUnderscore(movename)];
+
+  let text = "";
+  const didAttackHit = checkAttackHit(move.accuracy);
+
+  if (!didAttackHit) {
+    return {
+      damage: 0,
+      text: " The attack missed!",
+    };
+  }
 
   const calculateEffectiveness = (moveType, defenderTypes) => {
     return defenderTypes.reduce((multiplier, type) => {
@@ -222,7 +248,6 @@ const calculateDamage = (attacker, defender, movename, baseLevel = 50) => {
 
   const effectiveness = calculateEffectiveness(move.type, defender.types);
 
-  let text = "";
   if (effectiveness > 1) text = " It was super effective!";
   else if (effectiveness < 1) text = " It was not very effective.";
 
@@ -236,6 +261,30 @@ const calculateDamage = (attacker, defender, movename, baseLevel = 50) => {
     damage: Math.floor(baseDamage * effectiveness * sameTypeAttackBonus),
     text,
   };
+};
+
+const checkIsBattleOver = (team) =>
+  team.every((pokemon) => pokemon.currentHp <= 0);
+
+const handleBattleOver = async (loserId, winnerId) => {
+  try {
+    await User.updateOne(
+      { _id: winnerId },
+      {
+        $inc: { wins: 1, battles: 1 },
+      }
+    );
+
+    const loserUpdate = await User.updateOne(
+      { _id: loserId },
+      {
+        $inc: { losses: 1, battles: 1 },
+      }
+    );
+  } catch (error) {
+    console.error("Error updating battle results:", error);
+    throw error;
+  }
 };
 
 module.exports = {

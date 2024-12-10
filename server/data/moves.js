@@ -33,7 +33,7 @@ const moves = {
   Bite: { power: 60, accuracy: 100, type: "dark", isPhysical: true },
   Hyper_Fang: { power: 80, accuracy: 90, type: "normal", isPhysical: true },
   Headbutt: { power: 70, accuracy: 100, type: "normal", isPhysical: true },
-  Drill_Peck: { power: 800, accuracy: 100, type: "flying", isPhysical: true }, //CHANGE BACK
+  Drill_Peck: { power: 800, accuracy: 100, type: "flying", isPhysical: true },
   Iron_Tail: { power: 100, accuracy: 75, type: "steel", isPhysical: true },
   Electro_Ball: { power: 80, accuracy: 100, type: "electric" },
   Thunder_Punch: {
@@ -108,7 +108,7 @@ const moves = {
   Mega_Punch: { power: 80, accuracy: 85, type: "normal", isPhysical: true },
   Comet_Punch: { power: 18, accuracy: 85, type: "normal", isPhysical: true },
   Constrict: { power: 10, accuracy: 100, type: "normal", isPhysical: true },
-  Dragon_Breath: { power: 60, accuracy: 100, type: "dragon" },
+  Dragonbreath: { power: 60, accuracy: 100, type: "dragon" },
   Waterfall: { power: 80, accuracy: 100, type: "water", isPhysical: true },
   Horn_Drill: {
     power: Math.floor(Math.random() * (100 - 60 + 1)) + 60,

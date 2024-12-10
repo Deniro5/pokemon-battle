@@ -659,8 +659,8 @@ const pokemonData = [
     name: "Golbat",
     index: 42,
     isActive: false,
-    currentHp: 75,
-    totalHp: 75 * 4, // 300
+    currentHp: 300,
+    totalHp: 300, // 300
     moves: ["Bite", "Wing Attack", "Astonish", "Poison Fang"],
     types: ["flying", "poison"],
     stats: {

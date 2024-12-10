@@ -66,7 +66,6 @@ export default function TeamSelection() {
           "http://pokeapi.co/api/v2/pokemon?limit=151",
           { withCredentials: false }
         );
-        console.log(response);
         setPokemon(response.data.results);
         setLoading(false);
       } catch (error) {

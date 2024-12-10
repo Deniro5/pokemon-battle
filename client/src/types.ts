@@ -40,6 +40,7 @@ export enum BattleStatus {
   DISCONNECTED = "disconnected",
   CONNECT_ERROR = "connection_error",
   CONNECTED = "connected",
+  FINISHED = "finished",
 }
 
 export enum TurnType {

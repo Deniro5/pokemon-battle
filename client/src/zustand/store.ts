@@ -9,6 +9,7 @@ interface State {
   user: User | null;
   isAuthenticated: boolean;
   setUser: (user: User) => void;
+  refetchUser: (id) => void;
   updateUser: (_id: string, newFields: Partial<User>) => Promise<boolean>;
   login: (username: string, password: string) => Promise<boolean>;
   signup: (username: string, password: string) => Promise<boolean>;
@@ -26,6 +27,17 @@ const useStore = create<State>((set) => ({
         "http://localhost:8000/user/update/" + id,
         newFields
       );
+      const { user } = response.data;
+      set(() => ({ user }));
+      return true;
+    } catch (e) {
+      console.error(e);
+      return false;
+    }
+  },
+  refetchUser: async (id) => {
+    try {
+      const response = await axios.get("http://localhost:8000/user/" + id);
       const { user } = response.data;
       set(() => ({ user }));
       return true;
