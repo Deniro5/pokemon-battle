@@ -9,7 +9,7 @@ interface State {
   user: User | null;
   isAuthenticated: boolean;
   setUser: (user: User) => void;
-  refetchUser: (id) => void;
+  refetchUser: (id: string) => void;
   updateUser: (_id: string, newFields: Partial<User>) => Promise<boolean>;
   login: (username: string, password: string) => Promise<boolean>;
   signup: (username: string, password: string) => Promise<boolean>;

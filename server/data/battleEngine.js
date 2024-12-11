@@ -235,7 +235,7 @@ const calculateDamage = (attacker, defender, movename, baseLevel = 50) => {
 
   const calculateEffectiveness = (moveType, defenderTypes) => {
     return defenderTypes.reduce((multiplier, type) => {
-      return multiplier * (typeAttackChart[moveType]?.[type] || 1);
+      return multiplier * (typeAttackChart[moveType]?.[type] ?? 1);
     }, 1);
   };
 
@@ -249,6 +249,7 @@ const calculateDamage = (attacker, defender, movename, baseLevel = 50) => {
   const effectiveness = calculateEffectiveness(move.type, defender.types);
 
   if (effectiveness > 1) text = " It was super effective!";
+  else if (effectiveness === 0) text = `It does not affect ${defender.name}.`;
   else if (effectiveness < 1) text = " It was not very effective.";
 
   const sameTypeAttackBonus = attacker.types.includes(move.type) ? 1.25 : 1;

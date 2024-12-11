@@ -7,10 +7,10 @@ type TeamDisplayProps = {
 };
 
 export default function BattleTeamDisplay({ team, onClick }: TeamDisplayProps) {
-  const handleOnClick = (pokemon: T | null) => {
+  const handleOnClick = (pokemon: BattlePokemon | null) => {
     if (!onClick || !pokemon) return;
 
-    if (pokemon.currentHp === 0) {
+    if (pokemon.currentHp <= 0) {
       alert(pokemon.name + " has fainted and is unable to battle");
       return;
     }
@@ -20,7 +20,7 @@ export default function BattleTeamDisplay({ team, onClick }: TeamDisplayProps) {
   return (
     <TeamGrid>
       {team.map((pokemon) => (
-        <TileContainer>
+        <TileContainer hasFainted={pokemon.currentHp <= 0}>
           <Tile onClick={() => handleOnClick(pokemon)}>
             {" "}
             <img
@@ -67,10 +67,11 @@ const Name = styled.p`
   margin-bottom: 12px;
 `;
 
-const TileContainer = styled.div`
+const TileContainer = styled.div<{ hasFainted: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: ${({ hasFainted }) => (hasFainted ? 0.5 : 1)};
 `;
 
 const HealthContainer = styled.div`

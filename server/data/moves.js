@@ -5,6 +5,7 @@ const moves = {
   Sludge_Bomb: { power: 90, accuracy: 100, type: "poison" },
   Earthquake: { power: 100, accuracy: 100, type: "ground", isPhysical: true },
   Body_Slam: { power: 85, accuracy: 100, type: "normal", isPhysical: true },
+  Slam: { power: 85, accuracy: 90, type: "normal", isPhysical: true },
   Scratch: { power: 40, accuracy: 100, type: "normal", isPhysical: true },
   Ember: { power: 40, accuracy: 100, type: "fire" },
   Flamethrower: { power: 90, accuracy: 100, type: "fire" },

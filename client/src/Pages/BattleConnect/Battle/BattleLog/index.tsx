@@ -19,11 +19,14 @@ export default function BattleLog({ log }: BattleLogProps) {
   return (
     <Container ref={battleLogRef}>
       {" "}
-      {log.map((item) =>
+      {log.map((item, index) =>
         item.type === "header" ? (
-          <BattleLogHeader> {item.text} </BattleLogHeader>
+          <BattleLogHeader key={item.text + index}>
+            {" "}
+            {item.text}{" "}
+          </BattleLogHeader>
         ) : (
-          <BattleLogText> {item.text} </BattleLogText>
+          <BattleLogText key={item.text + index}> {item.text} </BattleLogText>
         )
       )}{" "}
     </Container>

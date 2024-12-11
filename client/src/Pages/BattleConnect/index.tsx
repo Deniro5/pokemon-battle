@@ -9,7 +9,7 @@ import Battle from "./Battle";
 import Disconnect from "./Disconnect";
 
 export default function BattleConnect() {
-  const { user } = useStore();
+  const { user, refetchUser } = useStore();
   const [battleStatus, setBattleStatus] = useState<BattleStatus>(
     BattleStatus.WAITING
   );
@@ -17,8 +17,13 @@ export default function BattleConnect() {
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
+    if (!user) {
+      setBattleStatus(BattleStatus.CONNECT_ERROR);
+      return;
+    }
+
     const newSocket = io("http://localhost:8000", {
-      query: { userId: user?._id },
+      query: { userId: user._id },
     });
 
     newSocket.on("connect", () => console.log("connect"));
@@ -31,14 +36,17 @@ export default function BattleConnect() {
 
     newSocket.on("battle_start", (battleState) => {
       setBattleStatus(BattleStatus.CONNECTED);
+
       setBattleState(battleState);
     });
 
     newSocket.on("update_state", (battleState) => {
       setBattleState(battleState);
       if (battleState.status === BattleStatus.FINISHED) {
+        setBattleStatus(BattleStatus.FINISHED);
         newSocket.disconnect();
         setSocket(null);
+        refetchUser(user._id);
       }
     });
 
@@ -46,6 +54,8 @@ export default function BattleConnect() {
       setBattleStatus(BattleStatus.DISCONNECTED);
       setBattleState(null);
     });
+
+    setSocket(newSocket);
 
     return () => {
       newSocket.disconnect();
@@ -57,7 +67,10 @@ export default function BattleConnect() {
     if (battleStatus === BattleStatus.WAITING) return <WaitScreen />;
     if (battleStatus === BattleStatus.DISCONNECTED) return <Disconnect />;
     if (battleStatus === BattleStatus.CONNECT_ERROR) return <ConnectError />;
-    if (battleStatus === BattleStatus.CONNECTED && !!battleState && !!socket)
+    if (
+      (battleStatus === BattleStatus.FINISHED && !!battleState) ||
+      (battleStatus === BattleStatus.CONNECTED && !!battleState && !!socket)
+    )
       return <Battle battleState={battleState} socket={socket} />;
   };
 

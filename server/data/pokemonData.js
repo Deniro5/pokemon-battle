@@ -84,7 +84,7 @@ const pokemonData = [
     index: 6,
     isActive: false,
     currentHp: 312,
-    totalHp: 321, // 312
+    totalHp: 312, // 312
     moves: ["Flamethrower", "Dragon Claw", "Air Slash", "Heat Wave"],
     types: ["fire", "flying"],
     stats: {

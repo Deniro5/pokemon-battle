@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Button, Flex } from "../../styles";
 import { useNavigate } from "react-router-dom";
 import useStore from "../../zustand/store";
+import removeImg from "./remove.png";
 
 export default function TeamSelection() {
   const navigate = useNavigate();
@@ -15,6 +16,25 @@ export default function TeamSelection() {
   const [selected, setSelected] = useState<(SelectedPokemon | null)[]>(
     user?.team?.length ? user.team : Array(6).fill(null)
   );
+
+  useEffect(() => {
+    const fetchPokemon = async () => {
+      try {
+        // Fetch data for the first 151 Pokémon
+        const response = await axios.get<{ results: PokemonType[] }>(
+          "http://pokeapi.co/api/v2/pokemon?limit=151",
+          { withCredentials: false }
+        );
+        setPokemon(response.data.results);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching Pokémon data", error);
+        setLoading(false);
+      }
+    };
+
+    fetchPokemon();
+  }, []);
 
   const getFirstEmptySlot = () => selected.findIndex((selected) => !selected);
 
@@ -58,25 +78,6 @@ export default function TeamSelection() {
 
   const handleClear = () => setSelected(Array(6).fill(null));
 
-  useEffect(() => {
-    const fetchPokemon = async () => {
-      try {
-        // Fetch data for the first 151 Pokémon
-        const response = await axios.get<{ results: PokemonType[] }>(
-          "http://pokeapi.co/api/v2/pokemon?limit=151",
-          { withCredentials: false }
-        );
-        setPokemon(response.data.results);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching Pokémon data", error);
-        setLoading(false);
-      }
-    };
-
-    fetchPokemon();
-  }, []);
-
   return (
     <>
       <Title>Team Selection</Title>
@@ -95,39 +96,34 @@ export default function TeamSelection() {
         ))}{" "}
       </TeamSelectionContainer>
       <SelectedTeamContainer>
-        <SelectedLabel>
-          {" "}
-          Selected:
-          <StyledFlex>
-            {selected.map((pokemon, index) => (
-              <TileContainer>
-                <Tile onClick={() => removePokemon(index)}>
-                  <img
-                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                      pokemon?.index || 0
-                    }.png`}
-                  />
-                </Tile>
-                <TileLabel> {pokemon?.name} </TileLabel>
-              </TileContainer>
-            ))}
-            <ButtonContainer>
-              <Button
-                onClick={handleSubmit}
-                disabled={getFirstEmptySlot() >= 0}
-              >
-                {" "}
-                Confirm Changes{" "}
-              </Button>
-              <Button
-                onClick={handleClear}
-                disabled={getFirstEmptySlot() === 0}
-              >
-                Clear
-              </Button>
-            </ButtonContainer>
-          </StyledFlex>
-        </SelectedLabel>
+        <SelectedLabel> Selected Pokemon:</SelectedLabel>
+        <StyledFlex>
+          {selected.map((pokemon, index) => (
+            <TileContainer>
+              <Tile onClick={() => removePokemon(index)}>
+                <img
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                    pokemon?.index || 0
+                  }.png`}
+                />
+                {!!pokemon && (
+                  <RemoveIcon src={removeImg} height={20} width={20} />
+                )}
+              </Tile>
+
+              <TileLabel> {pokemon?.name} </TileLabel>
+            </TileContainer>
+          ))}
+          <ButtonContainer>
+            <Button onClick={handleSubmit} disabled={getFirstEmptySlot() >= 0}>
+              {" "}
+              Confirm Changes{" "}
+            </Button>
+            <Button onClick={handleClear} disabled={getFirstEmptySlot() === 0}>
+              Clear
+            </Button>
+          </ButtonContainer>
+        </StyledFlex>
       </SelectedTeamContainer>
     </>
   );
@@ -143,7 +139,7 @@ const TeamSelectionContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  height: calc(100vh - 320px);
+  max-height: calc(100vh - 360px);
   overflow: scroll;
   border-bottom: 1px solid lightgrey;
 `;
@@ -155,6 +151,7 @@ const Tile = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   &:hover {
     cursor: pointer;
@@ -165,21 +162,18 @@ const Tile = styled.button`
 const TileLabel = styled.p`
   margin-top: 4px;
   font-weight: 500;
-  height: 40px;
 `;
 
 const SelectedTeamContainer = styled.div`
   height: 156px;
-`;
-
-const SelectedLabel = styled.h3`
   padding-left: 24px;
 `;
+
+const SelectedLabel = styled.h3``;
 
 const StyledFlex = styled(Flex)`
   gap: 24px;
   margin-top: 8px;
-  align-items: center;
 `;
 
 const TileContainer = styled.div`
@@ -192,4 +186,11 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-top: 8px;
+`;
+
+const RemoveIcon = styled.img`
+  position: absolute;
+  right: 0px;
+  top: 0px;
 `;

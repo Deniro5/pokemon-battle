@@ -30,7 +30,10 @@ export default function ActivePokemon({
           </HealthContainer>
           {!hideMoves &&
             pokemon.moves.map((move) => (
-              <Move onClick={() => handleAttackClick(move)}> {move}</Move>
+              <Move onClick={() => handleAttackClick(move)} key={move}>
+                {" "}
+                {move}
+              </Move>
             ))}
         </>
       ) : (

@@ -15,7 +15,7 @@ import BattleTeamDisplay from "./BattleTeamDisplay";
 
 type BattleProps = {
   battleState: BattleState;
-  socket: Socket;
+  socket: Socket | null;
 };
 
 export default function Battle({ battleState, socket }: BattleProps) {
@@ -41,7 +41,7 @@ export default function Battle({ battleState, socket }: BattleProps) {
   const isUserTurn = !!currentTurn.find((id) => id === user._id);
 
   const handleTeamClick = (pokemon: BattlePokemon) => {
-    if (!isUserTurn) return;
+    if (!isUserTurn || !socket) return;
 
     if (pokemon.currentHp <= 0) {
       alert(`${pokemon.name} has fainted and cannot be sent out to battle`);
@@ -57,7 +57,7 @@ export default function Battle({ battleState, socket }: BattleProps) {
   };
 
   const handleAttackClick = (move: string) => {
-    if (!isUserTurn || turnType !== TurnType.ATTACK) return;
+    if (!isUserTurn || turnType !== TurnType.ATTACK || !socket) return;
 
     socket.emit("turn", {
       battleId: battleState.id,
