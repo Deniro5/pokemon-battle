@@ -1,12 +1,35 @@
+export enum PokemonType {
+  NORMAL = "normal",
+  FIRE = "fire",
+  WATER = "water",
+  ELECTRIC = "electric",
+  GRASS = "grass",
+  ICE = "ice",
+  FIGHTING = "fighting",
+  POISON = "poison",
+  GROUND = "ground",
+  FLYING = "flying",
+  PSYCHIC = "psychic",
+  BUG = "bug",
+  ROCK = "rock",
+  GHOST = "ghost",
+  DRAGON = "dragon",
+  DARK = "dark",
+  STEEL = "steel",
+  FAIRY = "fairy",
+}
+
 export type SelectedPokemon = {
   name: string;
   index: number;
 };
 
+export type Team = SelectedPokemon[];
+
 export type User = {
   _id: string;
   username: string;
-  team: (SelectedPokemon | null)[];
+  team: Team;
   battles: number;
   wins: number;
   losses: number;
@@ -19,6 +42,7 @@ export type BattlePokemon = {
   currentHp: number;
   totalHp: number;
   moves: string[];
+  types: PokemonType[];
   stats: {
     attack: number;
     defense: number;
@@ -38,10 +62,35 @@ export enum BattleStatus {
   FINISHED = "finished",
 }
 
+export type MoveInfo = {
+  power: number;
+  accuracy: number;
+  type: PokemonType;
+  isPhysical?: boolean;
+};
+
 export enum TurnType {
   SWITCH = "switch", //at start + on death
   ATTACK = "attack", // attack turn. you can switch here too
 }
+
+export type Turn = {
+  battleId: string;
+  userId: string;
+  turnType: TurnType;
+};
+
+export type SwitchTurn = Turn & {
+  turnType: TurnType.SWITCH;
+  pokemonId: number;
+};
+
+export type AttackTurn = Turn & {
+  turnType: TurnType.ATTACK;
+  attacker: BattlePokemon;
+  defender: BattlePokemon;
+  move: string;
+};
 
 export type LogEntry = {
   type: "header" | "text";
@@ -54,7 +103,7 @@ export type BattleState = {
     [userId: string]: FullTeam;
   };
   activePokemon: {
-    [userId: string]: BattlePokemon;
+    [userId: string]: BattlePokemon | null;
   };
   usernames: {
     [userId: string]: string;

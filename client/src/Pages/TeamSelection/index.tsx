@@ -1,16 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { PokemonType, SelectedPokemon } from "../../types";
+import { SelectedPokemon } from "../../types";
 import styled from "styled-components";
 import { Button, Flex } from "../../styles";
 import { useNavigate } from "react-router-dom";
 import useStore from "../../zustand/store";
 import removeImg from "./remove.png";
+import spinnerImg from "../../assets/spinner.gif";
 
 export default function TeamSelection() {
   const navigate = useNavigate();
   const [pokemon, setPokemon] = useState<SelectedPokemon[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const { user, updateUser } = useStore();
   const [selected, setSelected] = useState<(SelectedPokemon | null)[]>(
@@ -21,7 +22,7 @@ export default function TeamSelection() {
     const fetchPokemon = async () => {
       try {
         // Fetch data for the first 151 Pokémon
-        const response = await axios.get<{ results: PokemonType[] }>(
+        const response = await axios.get<{ results: SelectedPokemon[] }>(
           "http://pokeapi.co/api/v2/pokemon?limit=151",
           { withCredentials: false }
         );
@@ -82,6 +83,7 @@ export default function TeamSelection() {
     <>
       <Title>Team Selection</Title>
       <TeamSelectionContainer>
+        {loading && <LoadingWheel height={128} src={spinnerImg} />}
         {pokemon.map((pokemon, index) => (
           <TileContainer>
             <Tile onClick={() => selectPokemon(pokemon.name, index + 1)}>
@@ -193,4 +195,8 @@ const RemoveIcon = styled.img`
   position: absolute;
   right: 0px;
   top: 0px;
+`;
+
+const LoadingWheel = styled.img`
+  margin-bottom: 24px;
 `;

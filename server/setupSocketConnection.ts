@@ -1,25 +1,26 @@
-const {
-  startBattle,
-  setActivePokemon,
-  queueTurn,
-  processTurns,
-} = require("./data/battleEngine");
+import { Server } from "socket.io";
+import { startBattle, queueTurn, processTurns } from "./battleEngine/index";
+import { BattleState, Turn } from "./types.js";
 
 const userToBattleMap = new Map();
 const connectedUsers = new Map();
 const waitingUsers = new Map();
 const battleMap = new Map();
 
-function getOpponentId(battleState, userId) {
-  return battleState.playerIds.find((id) => id != userId).toString();
+function getOpponentId(
+  battleState: BattleState,
+  userId: string | string[] | undefined
+) {
+  const opponentId = battleState.playerIds.find((id) => id != userId);
+  return opponentId ? opponentId.toString() : "";
 }
 
-module.exports = (io) => {
+const socketSetupFunction = (io: Server) => {
   io.on("connection", async (socket) => {
-    const userId = socket.handshake.query.userId;
+    const userId = <string>socket.handshake.query.userId;
     connectedUsers.set(userId, socket.id);
 
-    socket.on("turn", async (turnData) => {
+    socket.on("turn", async (turnData: Turn) => {
       const battleState = battleMap.get(turnData.battleId);
       if (!battleState) return;
 
@@ -35,6 +36,7 @@ module.exports = (io) => {
           newBattleState
         );
       } else {
+        //otherwise user should wait
         newBattleState.text[userId] = "Waiting for opponent...";
       }
 
@@ -50,13 +52,14 @@ module.exports = (io) => {
       if (battleId) {
         const battleToDelete = battleMap.get(battleId);
         const opponentId = (
-          battleToDelete.playerIds.find((id) => id != userId) || ""
+          battleToDelete.playerIds.find((id: string) => id != userId) || ""
         ).toString();
 
         io.to(connectedUsers.get(opponentId)).emit("opponent_disconnected");
       }
     });
 
+    //match connecting user to someone waiting if there is someone
     if (waitingUsers.size > 0) {
       const opponentId = waitingUsers.keys().next().value;
 
@@ -74,3 +77,5 @@ module.exports = (io) => {
     }
   });
 };
+
+export default socketSetupFunction;

@@ -1,13 +1,16 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const cookieParser = require("cookie-parser");
-const { Server } = require("socket.io");
-const app = express();
-const http = require("http");
+import express, { Request, Response } from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import { Server } from "socket.io";
+import http from "http";
+import setupSocketFunctions from "./setupSocketConnection"; // Import without file extension .js
+import authRoutes from "./routes/auth.routes";
+import userRoutes from "./routes/user.routes";
 
-const setupSocketFunctions = require("./setupSocketConnection");
+const app = express();
+
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
@@ -17,10 +20,7 @@ const io = new Server(server, {
   },
 });
 
-//---------------------------------------
-
-const authRoutes = require("./routes/auth.routes");
-const userRoutes = require("./routes/user.routes");
+// Import routes with TS style
 
 setupSocketFunctions(io);
 
@@ -36,6 +36,7 @@ app.use(
 
 app.use(express.json());
 
+// Use routes
 app.use("/user", userRoutes);
 app.use("/auth", authRoutes);
 
@@ -50,6 +51,6 @@ server.listen(PORT, () => {
 });
 
 // Simple route for testing
-app.get("/", (req, res) => {
-  res.send("Welcome to the MERN server!");
+app.get("/", (req: Request, res: Response) => {
+  res.send("Welcome to the MeRN server!");
 });

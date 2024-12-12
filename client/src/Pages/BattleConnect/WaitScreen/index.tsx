@@ -1,5 +1,5 @@
 import React from "react";
-import Spinner from "./spinner.gif";
+import Spinner from "../../../assets/spinner.gif";
 import styled from "styled-components";
 import { LinkButton } from "../../../styles";
 
