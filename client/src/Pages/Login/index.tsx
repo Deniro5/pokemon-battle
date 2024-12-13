@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import TodoList from "../../components/TodoList";
 import { Link, useNavigate } from "react-router-dom";
-import { User } from "../../types";
 import { sanitizeUsername } from "../../utils";
 import useStore from "../../zustand/store";
 

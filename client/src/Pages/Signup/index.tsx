@@ -119,11 +119,6 @@ const Label = styled.p`
   margin-bottom: 16px;
 `;
 
-const LinkContainer = styled.div`
-  text-align: center;
-  margin-top: 24px;
-`;
-
 const LoginButton = styled.button`
   margin-top: 24px;
   width: 100%;

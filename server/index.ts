@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { Server } from "socket.io";
 import http from "http";
-import setupSocketFunctions from "./setupSocketConnection"; // Import without file extension .js
+import setupSocketFunctions from "./setupSocketConnection";
 import authRoutes from "./routes/auth.routes";
 import userRoutes from "./routes/user.routes";
 
@@ -14,13 +14,11 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // React app origin
+    origin: "http://localhost:5173",
     methods: ["GET", "POST"],
     credentials: true,
   },
 });
-
-// Import routes with TS style
 
 setupSocketFunctions(io);
 
@@ -30,13 +28,12 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: "http://localhost:5173",
-    credentials: true, // if you want to allow cookies or other credentials
+    credentials: true,
   })
 );
 
 app.use(express.json());
 
-// Use routes
 app.use("/user", userRoutes);
 app.use("/auth", authRoutes);
 
@@ -50,7 +47,6 @@ server.listen(PORT, () => {
   console.log("server is running on port " + PORT);
 });
 
-// Simple route for testing
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome to the MeRN server!");
 });

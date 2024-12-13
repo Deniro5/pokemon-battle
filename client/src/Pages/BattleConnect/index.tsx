@@ -26,10 +26,6 @@ export default function BattleConnect() {
       query: { userId: user._id },
     });
 
-    newSocket.on("connect", () => console.log("connect"));
-
-    newSocket.send();
-
     newSocket.on("connect_error", () =>
       setBattleStatus(BattleStatus.CONNECT_ERROR)
     );

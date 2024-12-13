@@ -1,7 +1,5 @@
-import React, { ReactChildren, useEffect } from "react";
+import React, { useEffect } from "react";
 import useStore from "../../zustand/store";
-import Login from "../../Pages/Login";
-import Home from "../../Pages/Home";
 import { useNavigate } from "react-router-dom";
 
 type RouteProtectorProps = {

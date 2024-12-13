@@ -1,7 +1,7 @@
 import validator from "validator";
 
 export const sanitizeUsername = (username: string): string => {
-  return validator.escape(username.trim()); // This escapes potential harmful characters
+  return validator.escape(username.trim());
 };
 
 export const isValidUsername = (username: string): boolean => {

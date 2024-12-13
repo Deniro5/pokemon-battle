@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BattlePokemon, SelectedPokemon } from "../../../types";
+import { BattlePokemon } from "../../../../types";
 
 type TeamDisplayProps = {
   onClick?: (selectedPokemon: BattlePokemon) => void;
@@ -22,19 +22,15 @@ export default function BattleTeamDisplay({ team, onClick }: TeamDisplayProps) {
       {team.map((pokemon) => (
         <TileContainer hasFainted={pokemon.currentHp <= 0}>
           <Tile onClick={() => handleOnClick(pokemon)}>
-            {" "}
             <img
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                 pokemon?.index || 0
               }.png`}
-            />{" "}
+            />
           </Tile>
           <Name>{pokemon?.name}</Name>
           <HealthContainer>
-            {" "}
-            <Health
-              current={(pokemon.currentHp / pokemon.totalHp) * 100}
-            />{" "}
+            <Health current={(pokemon.currentHp / pokemon.totalHp) * 100} />
           </HealthContainer>
         </TileContainer>
       ))}

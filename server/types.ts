@@ -70,8 +70,8 @@ export type MoveInfo = {
 };
 
 export enum TurnType {
-  SWITCH = "switch", //at start + on death
-  ATTACK = "attack", // attack turn. you can switch here too
+  SWITCH = "switch",
+  ATTACK = "attack",
 }
 
 export type Turn = {
@@ -88,7 +88,6 @@ export type SwitchTurn = Turn & {
 export type AttackTurn = Turn & {
   turnType: TurnType.ATTACK;
   attacker: BattlePokemon;
-  defender: BattlePokemon;
   move: string;
 };
 
@@ -108,7 +107,7 @@ export type BattleState = {
   usernames: {
     [userId: string]: string;
   };
-  queuedTurns: any[]; //TODO fix this
+  queuedTurns: Turn[];
   currentTurn: string[];
   turnType: TurnType;
   playerIds: string[];

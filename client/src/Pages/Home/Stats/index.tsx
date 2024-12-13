@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import useStore from "../../../zustand/store";
 
@@ -7,16 +6,13 @@ export default function Stats() {
   return (
     <StatContainer>
       <Row>
-        {" "}
-        <b> Battles: </b> {user?.battles}{" "}
+        <b> Battles: </b> {user?.battles}
       </Row>
       <Row>
-        {" "}
-        <b> Wins: </b> {user?.wins}{" "}
+        <b> Wins: </b> {user?.wins}
       </Row>
       <Row>
-        {" "}
-        <b> Losses: </b> {user?.losses}{" "}
+        <b> Losses: </b> {user?.losses}
       </Row>
     </StatContainer>
   );

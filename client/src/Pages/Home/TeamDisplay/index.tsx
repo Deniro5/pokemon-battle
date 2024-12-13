@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { SelectedPokemon } from "../../../types";
+import { BasePokemon } from "../../../types";
 
 type TeamDisplayProps = {
-  team: (SelectedPokemon | null)[];
+  team: (BasePokemon | null)[];
 };
 
 export default function TeamDisplay({ team }: TeamDisplayProps) {

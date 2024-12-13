@@ -1,4 +1,4 @@
-export type SelectedPokemon = {
+export type BasePokemon = {
   name: string;
   index: number;
 };
@@ -6,7 +6,7 @@ export type SelectedPokemon = {
 export type User = {
   _id: string;
   username: string;
-  team: (SelectedPokemon | null)[];
+  team: (BasePokemon | null)[];
   battles: number;
   wins: number;
   losses: number;
@@ -59,7 +59,7 @@ export type BattleState = {
   usernames: {
     [userId: string]: string;
   };
-  queuedTurns: any[]; //TODO fix this
+  queuedTurns: any[];
   currentTurn: string[];
   turnType: TurnType;
   playerIds: string[];

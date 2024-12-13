@@ -11,8 +11,6 @@ import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Battle from "./Pages/BattleConnect";
 
-//import { moves } from "./data/pokemonData";
-
 function App() {
   const { checkAuth } = useStore();
   useEffect(() => {

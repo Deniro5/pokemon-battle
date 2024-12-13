@@ -2,9 +2,7 @@ import {
   BattlePokemon,
   BattleState,
   BattleStatus,
-  FullTeam,
   PokemonType,
-  SwitchTurn,
   Team,
   Turn,
   TurnType,
@@ -99,7 +97,6 @@ const handleTurn = async (
         turn.pokemonId,
         turn.userId
       );
-
       newBattleState.log.push({
         type: "text",
         text: `${
@@ -109,32 +106,31 @@ const handleTurn = async (
     }
 
     if (isAttackTurn(turn)) {
+      const defender = newBattleState.activePokemon[opponentTurn.userId];
+      if (!defender) return newBattleState;
+
       const { damage, text } = calculateDamage(
         turn.attacker,
-        turn.defender,
+        defender,
         turn.move
       );
 
-      console.log(damage);
-
-      turn.defender.currentHp -= damage;
-      newBattleState.activePokemon[opponentTurn.userId] = turn.defender;
+      defender.currentHp -= damage;
 
       newBattleState.log.push({
         type: "text",
         text: `${turn.attacker.name} used ${turn.move}.` + text,
       });
 
-      if (turn.defender.currentHp <= 0) {
-        const faintedPokemon = turn.defender;
+      if (defender.currentHp <= 0) {
         newBattleState.teams[opponentTurn.userId].push({
-          ...faintedPokemon,
+          ...defender,
           currentHp: 0,
         });
         newBattleState.activePokemon[opponentTurn.userId] = null;
         newBattleState.log.push({
           type: "text",
-          text: `${turn.defender.name} fainted.`,
+          text: `${defender.name} fainted.`,
         });
 
         const isBattleOver = checkIsBattleOver(
@@ -205,8 +201,6 @@ const getInitialBattleState = (
   };
 };
 
-//Each user chooses a pokemon to switch in
-
 const setActivePokemon = (
   battleState: BattleState,
   newActivePokemonId: number,
@@ -234,10 +228,17 @@ const setActivePokemon = (
   };
 };
 
-//handle a turn
-
 const checkAttackHit = (accuracy: number) =>
   Math.floor(Math.random() * 100) + 1 <= accuracy;
+
+const calculateEffectiveness = (
+  moveType: PokemonType,
+  defenderTypes: PokemonType[]
+) => {
+  return defenderTypes.reduce((multiplier, type) => {
+    return multiplier * (typeAttackChart[moveType]?.[type] ?? 1);
+  }, 1);
+};
 
 const calculateDamage = (
   attacker: BattlePokemon,
@@ -245,7 +246,6 @@ const calculateDamage = (
   movename: string,
   baseLevel = 50
 ) => {
-  console.log("uogrogs ");
   const move = moves[titleCaseToUnderscore(movename)];
 
   let text = "";
@@ -257,15 +257,6 @@ const calculateDamage = (
       text: " The attack missed!",
     };
   }
-
-  const calculateEffectiveness = (
-    moveType: PokemonType,
-    defenderTypes: PokemonType[]
-  ) => {
-    return defenderTypes.reduce((multiplier, type) => {
-      return multiplier * (typeAttackChart[moveType]?.[type] ?? 1);
-    }, 1);
-  };
 
   const attackStat = move.isPhysical
     ? attacker.stats.attack

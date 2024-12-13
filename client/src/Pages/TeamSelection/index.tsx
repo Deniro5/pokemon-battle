@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { SelectedPokemon } from "../../types";
+import { useEffect, useState } from "react";
+import { BasePokemon } from "../../types";
 import styled from "styled-components";
 import { Button, Flex } from "../../styles";
 import { useNavigate } from "react-router-dom";
@@ -10,11 +10,11 @@ import spinnerImg from "../../assets/spinner.gif";
 
 export default function TeamSelection() {
   const navigate = useNavigate();
-  const [pokemon, setPokemon] = useState<SelectedPokemon[]>([]);
+  const [pokemon, setPokemon] = useState<BasePokemon[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   const { user, updateUser } = useStore();
-  const [selected, setSelected] = useState<(SelectedPokemon | null)[]>(
+  const [selected, setSelected] = useState<(BasePokemon | null)[]>(
     user?.team?.length ? user.team : Array(6).fill(null)
   );
 
@@ -22,7 +22,7 @@ export default function TeamSelection() {
     const fetchPokemon = async () => {
       try {
         // Fetch data for the first 151 Pokémon
-        const response = await axios.get<{ results: SelectedPokemon[] }>(
+        const response = await axios.get<{ results: BasePokemon[] }>(
           "http://pokeapi.co/api/v2/pokemon?limit=151",
           { withCredentials: false }
         );

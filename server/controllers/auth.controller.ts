@@ -2,15 +2,11 @@ import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import User from "../models/user.model";
-import { RequestWithId } from "../apiTypes";
 
-// Create a custom type for the error
 interface MongoError extends Error {
   code?: number;
   keyPattern?: { username?: string };
 }
-
-// Function to generate token and set it in a cookie
 const generateTokenAndSetCookie = async (
   res: Response,
   userId: string
@@ -20,19 +16,17 @@ const generateTokenAndSetCookie = async (
   });
 
   res.cookie("token", token, {
-    httpOnly: true, // The cookie can only be accessed by the server (not JavaScript)
-    secure: process.env.NODE_ENV === "production", // Set to true if using https in production
-    expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days expiry
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
   });
 };
 
 type SignupRequestBody = {
   username: string;
   password: string;
-  // Add any other signup fields needed
 };
 
-// Handle signup
 const handleSignup = async (
   req: Request<unknown, unknown, SignupRequestBody>,
   res: Response
@@ -69,7 +63,6 @@ const handleSignup = async (
   }
 };
 
-// Handle login
 const handleLogin = async (req: Request, res: Response) => {
   const { username, password } = req.body;
   if (!username || !password) {
@@ -102,7 +95,6 @@ const handleLogin = async (req: Request, res: Response) => {
   }
 };
 
-// Handle logout
 const handleLogout = async (req: Request, res: Response) => {
   try {
     res.clearCookie("token");
@@ -113,10 +105,8 @@ const handleLogout = async (req: Request, res: Response) => {
   }
 };
 
-// Handle check authentication
 const handleCheckAuth = async (req: any, res: Response) => {
   try {
-    // userId comes from the validate token function
     const user = await User.findById(req.userId);
 
     if (!user) {

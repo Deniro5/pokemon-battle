@@ -1,4 +1,3 @@
-import TeamDisplay from "../../Home/TeamDisplay";
 import ActivePokemon from "./ActivePokemon";
 import {
   BattlePokemon,
@@ -63,7 +62,6 @@ export default function Battle({ battleState, socket }: BattleProps) {
       battleId: battleState.id,
       userId: user._id,
       attacker: userPokemon,
-      defender: opponentPokemon,
       move,
       turnType: TurnType.ATTACK,
     });
